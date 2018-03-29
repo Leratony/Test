@@ -50,7 +50,7 @@ $router -> add('login', ['controller' => 'Home', 'action' => 'login']);
 $router->add('{controller}/{action}');
 $router -> add('{controller}/{id:\d+}/{action}');
 $router->add('admin/{controller}/{action}');
-$router->add('admin/{controller}/{id:\d+}/{action}');
+$router -> add('admin/{controller}/{action}', ['namespace' => 'Admin']);
 
 // // Display the routing table
 
