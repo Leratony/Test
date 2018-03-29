@@ -1,0 +1,4 @@
+[Thu Mar 29 14:27:50.005007 2018] [:error] [pid 15759] [client ::1:60990] PHP Notice:  Use of undefined constant QUERY_STRING - assumed 'QUERY_STRING' in /home/valeria/projects/example/public/index.php on line 9
+[Thu Mar 29 14:27:50.024244 2018] [:error] [pid 15759] [client ::1:60990] PHP Notice:  Use of undefined constant QUERY_STRING - assumed 'QUERY_STRING' in /home/valeria/projects/example/public/index.php on line 9, referer: http://localhost/
+[Thu Mar 29 14:35:21.473327 2018] [:error] [pid 15761] [client ::1:32834] PHP Warning:  require(../Core/Route.php): failed to open stream: No such file or directory in /home/valeria/projects/example/public/index.php on line 9
+[Thu Mar 29 14:35:21.473384 2018] [:error] [pid 15761] [client ::1:32834] PHP Fatal error:  require(): Failed opening required '../Core/Route.php' (include_path='.:/usr/share/php') in /home/valeria/projects/example/public/index.php on line 9
