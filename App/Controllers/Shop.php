@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use \Core\View;
 /**
  * Shop controller
  * 
@@ -12,9 +13,10 @@ namespace App\Controllers;
  {
      public function indexAction()
      {
-         echo "Here will be a shop page";
-         echo '<pre>Query string parameters:<pre>' . htmlspecialchars(print_r($_GET, true)) . '</pre></p>';
-     }
+         
+         //echo '<pre>Query string parameters:<pre>' . htmlspecialchars(print_r($_GET, true)) . '</pre></p>';
+            View::renderTemplate('Shop/index.html');
+        }
 
      public function editAction() //это не нужный метод, только для примера. Надо применить его в Users/index
      {
