@@ -6,6 +6,11 @@
  * PHP version  7.0.28
  */
 
+// Require controllers
+
+require '../App/Controllers/Shop.php';
+
+
 require '../Core/Router.php';
 
 $router = new Router();
@@ -31,28 +36,25 @@ $router -> add('{controller}/{id:\d+}/{action}');
 $router->add('admin/{controller}/{action}');
 $router->add('admin/{controller}/{id:\d+}/{action}');
 
-// Display the routing table
+// // Display the routing table
 
-echo '<pre>';
-echo htmlspecialchars(print_r($router->getRoutes(), true));
-echo '</pre>';
+// echo '<pre>';
+// echo htmlspecialchars(print_r($router->getRoutes(), true));
+// echo '</pre>';
 
+// // Match 
 
+// $url = $_SERVER['QUERY_STRING'];
 
+// if ($router->match($url)) {
+//     echo '<pre>';
+//     var_dump($router->getParams());
+//     echo '</pre>';
+// } else {
+//     echo "No route found for URL '$url'";
+// }
 
-
-
-// Match 
-
-$url = $_SERVER['QUERY_STRING'];
-
-if ($router->match($url)) {
-    echo '<pre>';
-    var_dump($router->getParams());
-    echo '</pre>';
-} else {
-    echo "No route found for URL '$url'";
-}
+$router->dispatch($_SERVER['QUERY_STRING']);
 
 
 ?>
