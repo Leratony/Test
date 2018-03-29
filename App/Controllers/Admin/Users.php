@@ -23,7 +23,7 @@
          echo "Here will be a page with message about deleting progress";
      }
 
-     public function create()
+     public function new()
      {
          echo "Here will be a page for creating a new user";
      }
