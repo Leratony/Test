@@ -6,14 +6,10 @@
  * PHP version  7.0.28
  */
 
-// Require controllers
+// Twig
+require_once '../vendor/autoload.php';
 
-// require '../App/Controllers/Shop.php';
-// require '../App/Controllers/Home.php';
-// require '../App/Controllers/Register.php';
-// require '../App/Controllers/Admin/Users.php';
-// require '../App/Controllers/Admin/Statistics.php';
-// require '../Core/Router.php';
+// Require controllers
 
 spl_autoload_register( function ($class) {
     $root = dirname(__DIR__);
