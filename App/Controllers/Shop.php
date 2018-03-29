@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Controllers;
+
 /**
  * Shop controller
  * 
