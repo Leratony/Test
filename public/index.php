@@ -23,10 +23,21 @@ $router -> add('/admin/new', ['admin/controller' => 'New', 'action' => 'create']
 $router -> add('/admin/stats', ['admin/controller' => 'Stats', 'action' => 'index']);
 
 
-// Display the table
 
-echo '<pre>';
-var_dump($router->getRoutes());
-echo '</pre>';
+
+
+
+// Match 
+
+$url = $_SERVER['QUERY_STRING'];
+
+if ($router->match($url)) {
+    echo '<pre>';
+    var_dump($router->getParams());
+    echo '</pre>';
+} else {
+    echo "No route found for URL '$url'";
+}
+
 
 ?>
