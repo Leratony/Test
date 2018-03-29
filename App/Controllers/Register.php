@@ -2,6 +2,9 @@
 
 namespace App\Controllers;
 
+use \Core\View;
+
+
 /**
  * Register controller
  * 
@@ -12,7 +15,8 @@ namespace App\Controllers;
  {
      public function new()
      {
-         echo "Here will be a page for register new user of the site";
+         
+         View::renderTemplate('Register/index.html');
      }
  }
 
