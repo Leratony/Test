@@ -1,16 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset = "UTF-8">
-        <title>Home</title>
-    </head>
-    <body>
-        <h1>Welcome</h1>
-        <p>Hello from a twig template, {{ name }}!</p>
-        <ul>
-            {% for colour in colours %}
-            <li> {{ colour }} </li>
-            {% endfor %}
-        </ul>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+<div class = "NP"><marquee onmouseout="this.start()" onmouseover="this.stop()">News & Promo</marquee></div>
+
+<main>
+	<div id="promo">	
+    <h1> Annoncements</h1>    
+    </div>
+
+    <div id="mainTextWrap">
+        <div id="mainText">
+            Здесь будет текст для главной страницы. Здесь будет текст для главной страницы. Здесь будет текст для главной страницы.
+            Здесь будет текст для главной страницы. Здесь будет текст для главной страницы. Здесь будет текст для главной страницы.
+            Здесь будет текст для главной страницы. Здесь будет текст для главной страницы. Здесь будет текст для главной страницы.
+            Здесь будет текст для главной страницы. Здесь будет текст для главной страницы.  Здесь будет текст для главной страницы.
+        </div>
+    </div>
+
+   
+</main>
+    
+{% endblock %}
