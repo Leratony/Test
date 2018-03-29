@@ -36,7 +36,7 @@ use \Core\View;
 
      public function indexAction()
      {
-         echo "Here you can log in admin panel";
+         View::renderTemplate('AdminLogin/index.html');
      }
 
      
