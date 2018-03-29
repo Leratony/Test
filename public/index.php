@@ -10,6 +10,7 @@
 
 require '../App/Controllers/Shop.php';
 require '../App/Controllers/Home.php';
+require '../App/Controllers/Register.php';
 
 
 require '../Core/Router.php';
@@ -21,7 +22,7 @@ $router = new Router();
 
 $router -> add('', ['controller' => 'Home', 'action' => 'index']);
 $router -> add('login', ['controller' => 'Home', 'action' => 'login']);
-// $router -> add('register', ['controller' => 'Register', 'action' => 'reg']);
+// $router -> add('register', ['controller' => 'Register', 'action' => 'new']);
 // $router -> add('shop', ['controller' => 'Shop', 'action' => 'index']);
 // $router -> add('admin/enter', ['admin/controller' => 'Enter', 'action' => 'login']);
 // $router -> add('admin/users', ['admin/controller' => 'Users', 'action' => 'index']);
