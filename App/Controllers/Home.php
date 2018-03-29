@@ -31,10 +31,7 @@ use \Core\View;
         //      'colours' => ['violet', 'maroon', 'bordo']
         //  ]);
 
-         View::renderTemplate('Home/index.html', [
-            'name' => 'Valeria',
-            'colours' => ['violet', 'maroon', 'bordo']
-        ]);
+         View::renderTemplate('Home/index.html');
      }
 
      public function loginAction()
