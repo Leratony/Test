@@ -9,6 +9,7 @@
 // Require controllers
 
 require '../App/Controllers/Shop.php';
+require '../App/Controllers/Home.php';
 
 
 require '../Core/Router.php';
