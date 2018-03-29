@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use \Core\View;
 
 /**
  * Home controller
@@ -12,24 +13,25 @@ namespace App\Controllers;
  {
     protected function before()
     {
-        echo "(before)"; // это те методы, которые вызываются до запуска какого-то контроллера.
+        // echo "(before)"; // это те методы, которые вызываются до запуска какого-то контроллера.
         // тут надо бы поместить авторизацию, наверное
         // return false; - если это выставить, то пользователь не сможет видеть страницу, не авторизовавшись, например
     }
 
     protected function after()
     {
-        echo "(after)"; // это те методы, которые вызываются после какого-то контроллера
+        // echo "(after)"; // это те методы, которые вызываются после какого-то контроллера
     }
-
-
-
-
-
 
      public function indexAction()
      {
-         echo "Here will be a home (main) page";
+        
+        //  View::render('Home/index.php', [
+        //      'name' => 'Valeria',
+        //      'colours' => ['violet', 'maroon', 'bordo']
+        //  ]);
+
+         View::renderTemplate('Home/index.html');
      }
 
      public function loginAction()
