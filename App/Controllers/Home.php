@@ -8,7 +8,7 @@ namespace App\Controllers;
  * PHP version  7.0.28
  */
 
- class Home
+ class Home extends \Core\Controller
  {
      public function index()
      {
