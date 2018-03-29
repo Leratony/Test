@@ -13,6 +13,7 @@ namespace App\Controllers;
      public function index()
      {
          echo "Here will be a shop page";
+         echo '<pre>Query string parameters:<pre>' . htmlspecialchars(print_r($_GET, true)) . '</pre></p>';
      }
  }
 
