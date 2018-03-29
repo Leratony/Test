@@ -26,7 +26,7 @@ use \Core\View;
 
      public function indexAction()
      {
-        View::renderTemplate('AdminHome/index.html');
+        View::renderTemplate('AdminMain/index.html');
      }
 
      public function logoutAction()
