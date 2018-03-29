@@ -8,17 +8,28 @@
 
 // Require controllers
 
-require '../App/Controllers/Shop.php';
-require '../App/Controllers/Home.php';
-require '../App/Controllers/Register.php';
-require '../App/Controllers/Admin/Users.php';
-require '../App/Controllers/Admin/Statistics.php';
+// require '../App/Controllers/Shop.php';
+// require '../App/Controllers/Home.php';
+// require '../App/Controllers/Register.php';
+// require '../App/Controllers/Admin/Users.php';
+// require '../App/Controllers/Admin/Statistics.php';
+// require '../Core/Router.php';
+
+spl_autoload_register( function ($class) {
+    $root = dirname(__DIR__);
+    $file = $root . '/' .str_replace('\\', '/', $class) . '.php';
+    if (is_readable($file)) {
+        require $root . '/' .str_replace('\\', '/', $class) . '.php';
+    }
+
+} );
 
 
+/**
+ * Routing
+ */
 
-require '../Core/Router.php';
-
-$router = new Router();
+$router = new Core\Router();
 
 /** Add the routing table */
 
