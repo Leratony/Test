@@ -11,6 +11,8 @@
 require '../App/Controllers/Shop.php';
 require '../App/Controllers/Home.php';
 require '../App/Controllers/Register.php';
+require '../App/Controllers/Admin/Users.php';
+
 
 
 require '../Core/Router.php';
@@ -28,7 +30,7 @@ $router -> add('login', ['controller' => 'Home', 'action' => 'login']);
 // $router -> add('admin/users', ['admin/controller' => 'Users', 'action' => 'index']);
 // $router -> add('admin/users/edit', ['admin/controller' => 'Users', 'action' => 'edit']);
 // $router -> add('admin/users/delete', ['admin/controller' => 'Users', 'action' => 'delete']);
-// $router -> add('admin/new', ['admin/controller' => 'New', 'action' => 'create']);
+// $router -> add('admin/users/new', ['admin/controller' => 'New', 'action' => 'create']);
 // $router -> add('admin/stats', ['admin/controller' => 'Stats', 'action' => 'index']);
 
 
