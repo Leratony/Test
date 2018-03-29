@@ -10,13 +10,13 @@ namespace App\Controllers;
 
  class Shop extends \Core\Controller
  {
-     public function index()
+     public function indexAction()
      {
          echo "Here will be a shop page";
          echo '<pre>Query string parameters:<pre>' . htmlspecialchars(print_r($_GET, true)) . '</pre></p>';
      }
 
-     public function edit() //это не нужный метод, только для примера. Надо применить его в Users/index
+     public function editAction() //это не нужный метод, только для примера. Надо применить его в Users/index
      {
          echo 'Here you may edit some good';
          echo '<p>Route parameters: <pre>' . 
