@@ -26,7 +26,10 @@ use \Core\View;
      public function indexAction()
      {
         //  echo "Here will be a home (main) page";
-         View::render('Home/index.php');
+         View::render('Home/index.php', [
+             'name' => 'Valeria',
+             'colours' => ['violet', 'maroon', 'bordo']
+         ]);
      }
 
      public function loginAction()
