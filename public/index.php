@@ -12,7 +12,7 @@ $router = new Router();
 
 // Add the routing table
 $router -> add('', ['controller' => 'Home', 'action' => 'index']);
-$router -> add('/login', ['controller' => 'Home', 'action' => 'login']);
+$router -> add('login', ['controller' => 'Home', 'action' => 'login']);
 $router -> add('register', ['controller' => 'Register', 'action' => 'reg']);
 $router -> add('shop', ['controller' => 'Shop', 'action' => 'index']);
 $router -> add('/admin/enter', ['admin/controller' => 'Enter', 'action' => 'login']);
