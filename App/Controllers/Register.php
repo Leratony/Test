@@ -8,7 +8,7 @@ namespace App\Controllers;
  * PHP version  7.0.28
  */
 
- class Register
+ class Register extends \Core\Controller
  {
      public function new()
      {
