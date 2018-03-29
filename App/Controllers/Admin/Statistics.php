@@ -8,7 +8,7 @@ namespace App\Controllers\Admin;
  * PHP version  7.0.28
  */
 
- class Statistics
+ class Statistics extends \Core\Controller
  {
      public function index()
      {
