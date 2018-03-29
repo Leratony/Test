@@ -10,22 +10,33 @@ namespace App\Controllers\Admin;
 
  class Users extends \Core\Controller
  {
-     public function index()
+    protected function before()
+    {
+        echo "(before)"; // это те методы, которые вызываются до запуска какого-то контроллера.
+        // тут надо убедиться в авторизации
+        // return false; - если это выставить, то пользователь не сможет видеть страницу, не авторизовавшись, например
+    }
+
+
+
+
+
+     public function indexAction()
      {
          echo "Here will be a list of users";
      }
 
-     public function edit()
+     public function editAction()
      {
          echo "Here will be a page for edition of users";
      }
 
-     public function delete()
+     public function deleteAction()
      {
          echo "Here will be a page with message about deleting progress";
      }
 
-     public function new()
+     public function newAction()
      {
          echo "Here will be a page for creating a new user";
      }
