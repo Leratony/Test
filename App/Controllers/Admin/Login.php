@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Admin;
 
+use \Core\View;
+
 /**
  * Admin/Login controller
  * 
@@ -12,7 +14,7 @@ namespace App\Controllers\Admin;
  {
     protected function before()
     {
-        echo "(before)"; // это те методы, которые вызываются до запуска какого-то контроллера.
+        //echo "(before)"; // это те методы, которые вызываются до запуска какого-то контроллера.
         // тут надо убедиться в авторизации
         // проверить, запущена ли сессия
         // куки
@@ -22,7 +24,7 @@ namespace App\Controllers\Admin;
 
     protected function after()
     {
-        echo "(after)"; // это те методы, которые вызываются после запуска какого-то контроллера.
+        //echo "(after)"; // это те методы, которые вызываются после запуска какого-то контроллера.
         // тут надо убедиться в авторизации
         // еще какие-нибудь проверки
         // return false; - если это выставить, то пользователь не сможет видеть страницу, не авторизовавшись, например
@@ -34,7 +36,7 @@ namespace App\Controllers\Admin;
 
      public function indexAction()
      {
-         echo "Here you can log in admin panel";
+         View::renderTemplate('AdminLogin/index.html');
      }
 
      

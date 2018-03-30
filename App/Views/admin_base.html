@@ -1,0 +1,546 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{% block title %}{% endblock %}</title>
+<style>
+	
+
+@font-face{
+	font-family: "Open Sans";
+	src:url(fonts/2211.ttf);
+}
+@font-face {
+	font-family: "Huntsman";
+	src:url(fonts/9885.otf);
+}
+
+
+body, html {
+	padding: 0;
+	margin: 0;
+	font-family: "Open Sans", sans-serif;
+	color: #5e5e5e;
+	height: 100%;
+	width: 100%;
+	background-image:linear-gradient(to left, #626262,#282828);
+}
+
+/*____________________Header_______________________*/
+
+header {
+	width:100%;
+	height: 50px;
+	padding: 10px 0;
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+	background-image:linear-gradient(to left, #626262,#282828);
+	position: static;
+}
+#headerInside {
+	width: 1110px;
+	margin: 0 auto;
+}
+#logo {
+	width:50px;
+	height: 50px;
+	float: left;
+	background: url("../images/diamond.svg") no-repeat;
+	background-size: contain;
+}
+#companyName {
+	font-family: "Huntsman", sans-serif;
+	font-size: 22px;
+	float: left;
+	margin-left: 15px;
+	line-height: 50px;
+	color: #fff;
+}
+#navWrap {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	height: 50px;
+	float: right;
+}
+#navWrap a {
+	display: block;
+	font-family: "Open sans", sans-serif;
+	color:#fff;
+	padding: 0 20px;
+	height: 70px;
+	line-height: 70px;
+	text-decoration: none;
+
+}
+#navWrap a:hover {
+	background-color: #5e5e5e;
+}
+/*______________________End of Header_______________________*/
+
+
+/*_________________________Main____________________________*/
+
+main {
+	width:100%;
+	height: 100%;	
+	margin:0;
+}
+
+/*--------------------Navigation-----------------------*/
+#SideBar {
+	float:left;
+	position: static;
+	background-color:#282828;
+	border-right: 1px solid rgba(168,159,172, 0.5);
+	width: 25%;
+	height: 100%;
+    color: aliceblue;
+}
+#SideBar ul{
+padding:0;
+margin: 0;
+}
+#SideBar ul li{
+	list-style: none;	
+	
+}
+.ItemNav, .MainNav, .Out {
+	min-height: 100px;
+	border-bottom: 1px solid rgba(168,159,172, 0.5);
+	box-sizing: padding-box;
+}
+
+
+ #AvatarDefault {
+	width: 50px;
+	height: 50px;
+	float: left;
+	background: url("../images/user.svg") no-repeat;
+	background-size:contain;
+	margin: 10px;
+}
+.CurrentAdmin {
+	
+	float:left;
+	width: 50%;
+	height: 20px;
+	margin: 13px 13px 13px 0;
+	padding: 2px;
+	text-align: center;
+}
+.OnlineStatus {
+	
+	width: 100%;
+	clear: both;
+	margin-bottom: 5px;
+	padding: 2px;
+	text-align: center;
+}
+
+
+.MainNav {
+	background-color:#FFDA44;
+	text-align: center;
+	box-sizing: content-box;
+	
+}
+.Notice {
+	position: relative;
+	top:30px;
+	
+}
+.Notice a {
+	text-decoration: none;
+	color:#282828;
+}
+.ItemTitle_Icon {
+	text-align: center;
+	padding: 10px;
+}
+
+.ItemTitle_Icon a {
+	text-decoration: none;
+	color:aliceblue;
+	padding: 10px;
+}
+
+.UsersMenu {
+	width:100%;
+	height: 80px;
+	background-color: rgba(255,105,180, 0.5);
+	border-radius: 55px;
+	border:none;
+	color:aliceblue;
+	text-align-last: center;
+	font-size: 14px;
+	
+	
+}
+.UsersMenu li {
+    color:aliceblue;
+	text-align: center;
+	padding: 10px;
+}
+#SideBar a:hover{
+	color: darkred;
+}
+
+
+
+
+/*-------------------------End of Navigation-----------------------*/
+
+/*--------------------------Content--------------------------*/
+
+.content {
+	width: 74%;
+	height: 100%;
+	padding-bottom: 100px;
+    box-sizing: border-box;
+    overflow:scroll;
+	float:right;
+	position: static;	
+}
+
+
+
+/*------------------------Content----------------------*/
+
+/*-------------------------Home Link--------------------------*/
+.ShortCutsWrapper {
+	background-color:rgba(240,230,140, 0.5); /*Need to change "display" property for IE and Edge                                           on display: inline-block*/
+	width:80%;
+	height:auto;
+	margin: 50px auto;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	font-family: "Open Sans", "Cambria", serif;
+}
+.ShortCut {
+	font-family: "Open Sans", sans-serif;
+	background-color:grey;
+	width: 200px;
+	height: 100px;
+	margin: 20px;
+	align-items:baseline;
+	border: 2px solid #FFDA44;
+}
+
+.ShortCut img {
+	width: 50px;
+	height:50px;
+	margin: 10px;
+	position: relative;
+	top: 15px;
+	
+}
+.text {
+	text-align: center;
+	position:relative;
+	bottom: 35px;
+	left: 60px;
+	width: 50%;
+	
+}
+.text a {
+	text-decoration: none;
+	color:aliceblue;
+}
+/*-------------------------End of Home Link--------------------------*/
+
+/*--------------------------Users -> List Link---------------------------*/
+
+.content {
+	width: 74%;
+	height: 100%;
+	padding-bottom: 100px;
+    box-sizing: border-box;
+    overflow: scroll;
+	float:right;
+	position: static;	
+}
+.UserDataTable {
+	width: 80%;
+	margin: 0 auto;
+}
+caption {
+	color:aliceblue;
+	text-decoration: overline;
+	padding: 20px;
+	font-size: 30px;
+}
+table {
+	border: 2px solid;
+	border-spacing: 5px;
+	width:100%;
+	background-color: #575757;
+}
+th {
+	padding: 5px;
+	color: #FFDA44;
+}
+ td { 
+	padding: 5px;
+	min-height: 25px;
+	border: none;
+	background-color: white;
+}
+td .editLink, td .deleteLink {
+	text-decoration: none;
+}
+td .editLink {
+	color: #FF7600;
+}
+td .deleteLink {
+	color: #A87070;
+}
+.totalUsers {
+	border: 1px ridge #FFDA44;
+	width: 25%;
+	color: #fff;
+	padding: 5px;
+}
+
+/*--------------------End of Users -> List Link-----------------------*/
+
+
+/*--------------------------Users -> Create Link-----------------------*/
+.HeaderForm{
+	border-radius: 5px;
+	width:70%;
+	margin: 0 auto;
+	height:80px;
+	padding: 10px;
+}
+
+
+.CaptionRegister {
+	width:70%;
+	margin: 0 auto;
+	position: relative;
+	top: 8px;
+	color: #1FB518;
+}
+.CaptionRegister h1 {
+	text-align: center;
+}
+.formWrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: CENTER;
+	align-items: stretch;
+	flex-wrap: nowrap;
+	align-content: center;
+	height: 80%;
+	
+}
+
+form[name = NewUser] {
+	background-color: rgba(141,138,142, 0.3) ;
+	padding:10px;
+	width: 80%;
+	color: #D0CFCF;
+	border-radius: 5px;
+	border: 2px solid #FFDA44;
+}
+
+.formWrapper label {
+	color:#E7ECF0;
+	font-size: 120%;
+	margin-right: 20px;
+	
+}
+
+input[type = text],  input[type = password] {
+	line-height: 30px;
+	width: 100%;
+	margin:10px;
+	border:none;
+	border-radius: 5px;
+	
+}
+	
+form input[type = radio]{
+	/*Look at master's tutorials from html academy*/
+	
+	
+}	
+form input[type = date]{
+	/*Look at master's tutorials from html academy*/
+	border:none;
+	border-radius: 5px;
+	padding: 3px;
+}	
+
+.Register, .Priveleg, .GenderDiv, .BDayDiv, .LogPassDiv {
+ margin: 20px;
+}
+
+form input[type = submit]{
+	/*Look at master's tutorials from html academy*/
+	position: relative;
+	left: 3%;
+	padding: 7px 20px;
+	font-size: 120%;
+	border-radius: 5px;
+	border:none;
+}
+form input[type = reset]{
+	position: relative;
+	left: 6%;
+	padding: 7px 20px;
+	font-size: 120%;
+	border-radius: 5px;
+	border:none;
+}
+form .Register{
+	width:100%;
+}
+form .Privileg {
+	position: relative;
+	color: skyblue;
+	width: 40%;
+	height:50px;
+    float: right;
+	bottom: 5px;
+	margin-right: 20px;
+	font-family: Cambria, "Hoefler Text", helvetica;
+}
+.Privileg input [name = WhetherAdmin] {
+	/*look at master-class of HTML Academy*/
+}
+
+
+
+/*--------------------End of Users -> Create Link-----------------------*/
+
+/*---------------------End of Main------------------------*/
+
+/*---------------------------Footer-------------------------------*/
+
+
+footer {
+	width: 100%;
+	height: 40px;
+background:
+radial-gradient(black 15%, transparent 16%) 0 0,
+radial-gradient(black 15%, transparent 16%) 8px 8px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+background-color:#282828;
+background-size:16px 16px;
+	text-align: center;
+	color:aliceblue;
+	padding-top: 15px;
+	position: static;
+	clear: both;
+	
+}
+/*_______________________End of Footer_____________________________*/
+</style>
+</head>
+
+<body>
+<header>
+<div id = "headerInside">
+	<div id ="logo"></div>
+	<div id ="companyName">Brand Admin</div>
+	<div id ="navWrap">
+		<a href="/">Main</a>
+		
+		
+	</div>
+	
+</div>
+</header>
+
+
+<main>
+
+	<nav id ='SideBar'>
+	 	<ul>
+	 		<li>
+	 			<div class = 'ItemNav'>
+					<div id = 'AvatarDefault'></div>
+					<div class = 'CurrentAdmin'> <font color='red'><?php $name ?></font></div>
+					<div class = 'OnlineStatus'> Online status</div>
+					
+	 			</div>
+	 		</li>
+	 		<li>
+ 				<div class = 'MainNav'>
+ 					<div class = 'Notice'><a href = 'Main.php?page=home'>HOME</a></div>
+ 				</div>
+	 		</li>
+	 		<li>
+	 		     <div class = 'ItemNav'>
+					<div class = 'ItemTitle_Icon'><a href = '#'>Users</a>
+					<ul class = 'UsersMenu'>
+					   
+							<li><a href = 'Main.php?page=list' >List</a></li>
+							<li><a href = 'Main.php?page=create' >Create new user</a></li>
+						
+					</ul>
+					
+			
+               	     </div>
+            	</div>
+	 		</li>
+	 		<li>
+		 		<div class = 'ItemNav'>
+					<div class = 'ItemTitle_Icon'><a href = '#'>Admin Panel</a>
+						<ul class = 'UsersMenu'>
+					   
+							<li><a href = 'Main.php?page=stats' >Stats</a></li>
+							<li><a href = '#'>Settings</a></li>
+						
+					</ul>
+           	         </div>
+            	</div>
+	 		</li>
+	 		
+	 		<li>
+	 			<div class = 'ItemNav'>
+	 				<div class ='ItemTitle_Icon'>Developers</div>
+	 				</div>
+	 		</li>
+	 		<li>
+	 			<div class = 'ItemNav'>
+	 			<div class ='ItemTitle_Icon'>FAQ</div>
+	 			</div>
+	 		</li>
+	 		<li>
+				<div class = 'Out'>
+				<div class = 'ItemTitle_Icon'>
+				<a href = '/admin/main/logout'>Sign Out</a>
+				</div>
+				</div>
+	 		</li>
+	 		
+	 	</ul>
+	</nav>
+	
+
+	<div class = 'content'>
+		{% block body%}
+		{% endblock %}  
+	</div>
+    
+      
+    
+            
+	            
+</main>
+
+<footer>
+	<div id ="copyrightFooter">
+		&copy Brand
+	</div>
+	
+</footer>
+</body>
+</html>
+	  
