@@ -3,7 +3,475 @@
 <head>
 <meta charset="utf-8">
 <title>{% block title %}{% endblock %}</title>
-<link href="index_style.css" rel="stylesheet" type="text/css">
+<style>
+		@charset "utf-8";
+		/* CSS Document //  base template styles*/
+		@font-face{
+			font-family: "Open Sans";
+			src:url(fonts/2211.ttf);
+		}
+		@font-face {
+			font-family: "Huntsman";
+			src: url(fonts/9885.otf);
+		}
+		
+		
+		body, html {
+			padding: 0;
+			margin: 0;
+			font-family: "Open Sans", sans-serif;
+			color: #5e5e5e;
+			height: 100%;
+			
+		}
+		/*------------------------------Header-------------------------------*/
+		header {
+			width:100%;
+			height: 50px;
+			padding: 10px 0;
+			border-bottom: 1px solid rgba(255,255,255,0.1);
+			background-image:linear-gradient(to right, #747275,#242225);
+		}
+		#headerInside {
+			width: 1110px;
+			margin: 0 auto;
+		}
+		#logo {
+			width:50px;
+			height: 50px;
+			float: left;
+			background: url("../images/diamond.svg") no-repeat;
+			background-size: contain;
+		}
+		#companyName {
+			font-family: "Huntsman", sans-serif;
+			font-size: 22px;
+			float: left;
+			margin-left: 15px;
+			line-height: 50px;
+			color: #fff;
+		}
+		.navWrap {
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+			height: 50px;
+			float: right;
+			
+		}
+		.navWrap .main-menu {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.navWrap .main-menu  li{
+			position: relative;
+			display: inline-block;
+			
+		}
+		 .main-menu  a {
+			border-left: 1px solid rgba(255,255,255,0.1);
+			border-right: 1px solid rgba(255,255,255,0.1);
+			display: block;
+			font-family: "Open sans", sans-serif;
+			color:#fff;
+			padding: 0 20px;
+			height: 70px;
+			line-height: 70px;
+			text-decoration: none;
+			margin-right: -4px;
+		}
+		
+		.navWrap a:hover {
+			background-color: #5e5e5e;
+			
+		}
+		 .sub-menu {
+			background-color: #5e5e5e;
+			color:aliceblue;
+			border: 1px solid rgba(255,255,255,0.1);
+			position:absolute;
+			top: 70px;
+			right: -4px;
+			height: 250px;
+			width:290px;
+			margin: 0;
+			padding: 0;
+			display: none;
+		}
+		.sub-menu form {
+			height: 280px;
+			margin: 10px;
+			display: block;
+			padding: 0;
+		}
+		.sub-menu li {
+			list-style: none;
+			position: relative;
+			left: 30px;
+		}
+		
+		.sub-menu li label {
+			text-align: center;
+			font-size: 13px;
+		}
+		.sub-menu form input[type = text], .sub-menu form input[type = password] {
+			margin: 20px;
+			border:none;
+			border-radius: 5px;
+			line-height: 30px;
+		}
+		.sub-menu li input[name = EnterSend]{
+			color:aliceblue;
+			background-color: #747275;
+			padding: 5px;
+			border: none;
+		}
+		.main-menu > li:hover .sub-menu {
+			display: block;
+		}
+		.main-menu #Register {
+			border: none;
+			position: relative;
+			left: 80px;
+		}
+		
+		
+		/*------------------------------End of Header-------------------------------*/
+		
+		/*------------------------------Main Content-------------------------------*/
+		main {
+		
+			width: 100%;
+			float:left;
+			box-sizing: border-box;
+			overflow: hidden;
+			position: static;
+		}
+		/*------------------------------End of Main Content-------------------------------*/
+		
+		footer {
+			padding: 0;
+			margin: 0;
+			height: 320px;
+			width: 100%;
+			background-color: #747275;
+			font-family: "Open Sans", sans-serif;
+			position: static;
+			float: left;
+		}
+		#contacts {
+			width:75%;
+			float:left;
+			color:aliceblue;
+		}
+		#contacts li {
+			line-height: 40px;
+			list-style: none;
+			letter-spacing: 2px;
+			
+		}
+		#contacts li img {
+			width:40px;
+			height:40px;
+			margin: 10px 10px -10px 10px;
+		}
+		#navFooter {
+			width:25%;
+			float: right;
+			padding: 20px 0;
+		}
+		#navFooter li {
+			list-style: none;
+			line-height: 30px;
+		}
+		#navFooter li a{
+			text-decoration: none;
+			color:#FFDA44;
+		}
+		#copyrightFooter {
+			width: 550px;
+			padding: 0px 10px;
+			margin: 0 auto;
+			clear: both;
+			text-align: center;
+			letter-spacing: 2px;
+			color:aliceblue;
+			border-top:1px solid rgba(255,255,255,0.1);
+		}
+		#copyrightFooter li {
+			display: inline-block;
+			padding: 0 5px;
+		}
+		#copyrightFooter ul {
+			display: block;
+			padding: 10px 10px;
+			margin: 0 auto;
+		}
+		/*--------------------------End of base template-----------------------------*/
+
+		/* CSS Document //  home template styles*/
+		
+@font-face{
+	font-family: "Open Sans";
+	src:url(fonts/2211.ttf);
+}
+@font-face {
+	font-family: "Huntsman";
+	src:url(fonts/9885.otf);
+}
+
+/*----------------------Document---------------------------*/
+body, html {
+	padding: 0;
+	margin: 0;
+	font-family: "Open Sans", sans-serif;
+	color: #5e5e5e;
+}
+
+
+/*-------------------------Main Content----------------------------*/
+main {
+	height:800px;
+}
+
+#promo {
+    background: url('http://placehold.it/1920x1080') no-repeat;
+    width: 100%;
+    height: 600px;
+    background-size: cover;
+    margin-top: -71px;
+    float: left;
+}
+
+#promoText {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 100px;
+    color: #fff;
+    font-family: Exo, sans-serif;
+    font-size: 2em;
+    word-spacing: 8px;
+}
+
+#mainTextWrap {
+    width: 100%;
+    float: left;
+}
+
+#mainText {
+    width: 1100px;
+    margin: 40px auto;
+    text-align: justify;
+}
+
+#shopWrap {
+    width: 100%;
+    float: left;
+}
+
+.shopUnit {
+    float: left;
+    width: 28%;
+    padding: 5px;
+    border: 1px solid rgba(225, 225, 225, 0.7);
+    margin-right: 6.365%;
+    margin-bottom: 20px;
+}
+
+.shopUnit:nth-child(3n) {
+    margin-right: 0;
+}
+
+.shopUnitName {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    font-family: Exo, sans-serif;
+    font-size: 1.2em;
+}
+
+.shopUnit img {
+    width: 100%;
+    height: 231px;
+}
+
+.shopUnitShortDesc {
+    text-align: justify;
+    margin-top: 10px;
+}
+
+.shopUnitPrice {
+    text-align: right;
+    padding-right: 20px;
+    margin-top: 10px;
+    color: #6a6747;
+    font-weight: bold;
+}
+
+.shopUnitMore {
+    border: none;
+    padding: 5px 15px;
+    background-color: #696969;
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #e6e09a;
+    text-decoration: none;
+}
+
+.shopUnitMore:hover {
+    color: #fff;
+    background-color: #777777;
+}
+
+
+
+/*-------------------------End of home template styles--------------------------*/
+
+/* CSS Document register template styles */
+@font-face{
+	font-family: "Open Sans";
+	src:url(fonts/2211.ttf);
+}
+@font-face {
+	font-family: "Huntsman";
+	src:url(fonts/9885.otf);
+}
+
+body, html {
+	padding: 0;
+	margin: 0;
+	font-family: "Open Sans", sans-serif;
+	color: #5e5e5e;
+}
+
+
+
+
+
+/*---------------------------------MainConntent Styles-------------------------------------*/
+#main {
+	width:100%;
+	height: 800px;
+	background:
+radial-gradient(black 15%, transparent 16%) 0 0,
+radial-gradient(black 15%, transparent 16%) 8px 8px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+background-color:#282828;
+background-size:16px 16px;
+}
+.mainHeaderForm{
+	background-color: rgba(106,104,107,0.05);
+	border-radius: 5px;
+	width:70%;
+	margin: 0 auto;
+	height:80px;
+	padding: 10px;
+}
+#logoRegister {
+	width:50px;
+	height: 50px;
+	float: left;
+	background: url("../images/verified-commercial-list.svg") no-repeat;
+	background-size: contain;
+	position: relative;
+	left: 220px;
+	top: 20px;
+}
+#CaptionRegister {
+	width:70%;
+	background-color: rgba(106,104,107,0.05);
+	margin: 0 auto;
+	position: relative;
+	top: 8px;
+	color: #1FB518;
+}
+#CaptionRegister h1 {
+	text-align: center;
+}
+.formWrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: CENTER;
+	align-items: stretch;
+	flex-wrap: nowrap;
+	align-content: center;
+	height: 600px;
+	
+}
+
+form[name = New] {
+	background-color: rgba(141,138,142, 0.3) ;
+	padding:10px;
+	width: 80%;
+	color: #D0CFCF;
+	border-radius: 5px;
+	
+}
+
+.formWrapper label {
+	color:#E7ECF0;
+	font-size: 120%;
+	margin-right: 20px;
+	text-transform:uppercase;
+	
+}
+
+input[type = text],  input[type = password] {
+	line-height: 30px;
+	width: 100%;
+	margin:10px;
+	border:none;
+	border-radius: 5px;
+	
+}
+	
+form input[type = radio]{
+	/*Look at master's tutorials from html academy*/
+	
+	
+}	
+form input[type = date]{
+	/*Look at master's tutorials from html academy*/
+	border:none;
+	border-radius: 5px;
+	padding: 3px;
+}	
+
+.NameSurnameDiv, .GenderDiv, .BDayDiv, .LogPassDiv {
+ margin: 20px;
+}
+
+form input[type = submit]{
+	/*Look at master's tutorials from html academy*/
+	position: relative;
+	left: 3%;
+	padding: 7px 20px;
+	font-size: 120%;
+	border-radius: 5px;
+	border:none;
+}	
+form .Register{
+	width:100%;
+}
+form .Warn {
+	position: relative;
+	color: skyblue;
+	width:50%;
+    float: right;
+	bottom: 5px;
+	margin-right: 20px;
+	font-family: Cambria, "Hoefler Text", helvetica;
+}
+
+/*---------------------------------End of register template styles--------------------------------*/
+
+
+
+</style>
 </head>
 <header>
 <div id = "headerInside">
