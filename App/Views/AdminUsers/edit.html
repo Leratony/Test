@@ -1,0 +1,74 @@
+{% extends "admin_base.html" %}
+
+{% block title %}List{% endblock %}
+
+{% block body %}
+
+<div class ='HeaderForm'>
+    <div class = 'CaptionRegister'>
+    <h1>Edit Userinfo</h1>
+    </div>
+</div>
+
+<div class = 'formWrapper'>
+
+
+
+    <form method = 'post' action = 'Edit.php?id=<?php echo $id; ?>' name='NewUser'>
+       
+        <div class='GenderDiv'>
+        
+            <label class = 'Name'> Name: <br>
+            <input type ='text' name = 'Name' value = "<?php echo $row['user_name'];?>">
+            </label> 
+
+
+            <label> Surame: <br>
+            <input type ='text' name = 'Surname' value = "<?php echo $row['user_surname'];?>">
+            </label>
+
+            <label> Gender: </label>
+                <input type='radio' name='Gender' value='m' > Male 
+                <input type='radio' name='Gender' value='f' > Female 
+             
+        </div>
+        
+        <div class = 'BDayDiv'>		
+        
+            <label>Birthday:</label>
+            <input type = 'date' name = 'Birthday' value = "<?php echo $row['user_bday'];?>">
+        </div>
+        
+        <div class = 'LogPassDiv'>
+            <label> Login: <br>
+            <input type = 'text' name = 'Login' value = "<?php echo $row['user_login']; ?>">
+            </label> 
+
+            <label> Enter password:<br>
+            <input type = 'password' name = 'Password' value = "<?php echo $row['user_password']; ?>">
+            </label>
+
+<!--
+            <label> Confirm password:<br>
+                <input type ='password' name = 'Password_confirm'><br>
+            </label>
+-->
+            
+            
+        </div>
+        <div class = 'Register'>
+            
+            <input type = 'submit' name = 'save' value = 'Save Changes'>
+            <input type ='reset' name ='clear' value='Clear'>
+
+            <div class ='Privileg'>
+            <label> Administrator:
+            <input type = 'checkbox' name = 'Admin' value = "<?php echo $row['admin_access']; ?>">
+            </label>
+                
+            </div>
+        </div>	
+    </form>
+</div>
+
+{% endblock %}
