@@ -1,0 +1,140 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face{
+	font-family: "Open Sans";
+	src:url(fonts/2211.ttf);
+}
+@font-face {
+	font-family: "Huntsman";
+	src:url(fonts/9885.otf);
+}
+
+body, html {
+	padding: 0;
+	margin: 0;
+	font-family: "Open Sans", sans-serif;
+	color: #5e5e5e;
+}
+
+
+
+
+
+/*---------------------------------MainConntent Styles-------------------------------------*/
+#main {
+	width:100%;
+	height: 800px;
+	background:
+radial-gradient(black 15%, transparent 16%) 0 0,
+radial-gradient(black 15%, transparent 16%) 8px 8px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+background-color:#282828;
+background-size:16px 16px;
+}
+.mainHeaderForm{
+	background-color: rgba(106,104,107,0.05);
+	border-radius: 5px;
+	width:70%;
+	margin: 0 auto;
+	height:80px;
+	padding: 10px;
+}
+#logoRegister {
+	width:50px;
+	height: 50px;
+	float: left;
+	background: url("../images/verified-commercial-list.svg") no-repeat;
+	background-size: contain;
+	position: relative;
+	left: 220px;
+	top: 20px;
+}
+#CaptionRegister {
+	width:70%;
+	background-color: rgba(106,104,107,0.05);
+	margin: 0 auto;
+	position: relative;
+	top: 8px;
+	color: #1FB518;
+}
+#CaptionRegister h1 {
+	text-align: center;
+}
+.formWrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: CENTER;
+	align-items: stretch;
+	flex-wrap: nowrap;
+	align-content: center;
+	height: 600px;
+	
+}
+
+form[name = New] {
+	background-color: rgba(141,138,142, 0.3) ;
+	padding:10px;
+	width: 80%;
+	color: #D0CFCF;
+	border-radius: 5px;
+	
+}
+
+.formWrapper label {
+	color:#E7ECF0;
+	font-size: 120%;
+	margin-right: 20px;
+	text-transform:uppercase;
+	
+}
+
+input[type = text],  input[type = password] {
+	line-height: 30px;
+	width: 100%;
+	margin:10px;
+	border:none;
+	border-radius: 5px;
+	
+}
+	
+form input[type = radio]{
+	/*Look at master's tutorials from html academy*/
+	
+	
+}	
+form input[type = date]{
+	/*Look at master's tutorials from html academy*/
+	border:none;
+	border-radius: 5px;
+	padding: 3px;
+}	
+
+.NameSurnameDiv, .GenderDiv, .BDayDiv, .LogPassDiv {
+ margin: 20px;
+}
+
+form input[type = submit]{
+	/*Look at master's tutorials from html academy*/
+	position: relative;
+	left: 3%;
+	padding: 7px 20px;
+	font-size: 120%;
+	border-radius: 5px;
+	border:none;
+}	
+form .Register{
+	width:100%;
+}
+form .Warn {
+	position: relative;
+	color: skyblue;
+	width:50%;
+    float: right;
+	bottom: 5px;
+	margin-right: 20px;
+	font-family: Cambria, "Hoefler Text", helvetica;
+}
+
+/*---------------------------------End of MainConntent Styles--------------------------------*/
+
