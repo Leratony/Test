@@ -17,17 +17,9 @@ use PDO;
         
          try {
              $db = static::getDB();
-            $stmt = $db->query('SELECT    id, 
-                                            user_name,
-                                            user_surname,
-                                            user_gender,
-                                            user_bday,
-                                            user_login, 
-                                            user_password,
-                                            admin_access
-             
-                                            FROM Users');
+             $stmt = $db->query('SELECT  *  FROM Users');
              $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
              
              return $results;
                 } catch (PDOException $e) {
@@ -39,6 +31,15 @@ use PDO;
 
      public static function editUser()
      {
+        try {
+            $db = static::getDB();
+
+
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+           } 
+
 
      }
 
