@@ -13,10 +13,16 @@ use PDO;
      // Get all users as an associative array
 
      public static function getUsers()
-     {
+     {  $host = 'localhost';
+        $dbname = 'Users_Data';
+        $username = 'root';
+        $password = 'admin';
+        
          try {
-             $db = static::getDB();
-             $stmt = $$db->query('SELECT    id, 
+            //  $db = static::getDB();
+            $db = new PDO("mysql:host = $host;dbname = $dbname", $username, $password);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $db->query('SELECT    id, 
                                             user_name,
                                             user_surname,
                                             user_gender,
