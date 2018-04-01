@@ -15,8 +15,8 @@ use PDO;
      public static function getUsers()
      {  $host = 'localhost';
         $dbname = 'Users_Data';
-        $username = 'root';
-        $password = 'admin';
+        $username = 'admin_bd';
+        $password = '251502html';
         
          try {
             //  $db = static::getDB();
@@ -35,8 +35,30 @@ use PDO;
              $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
              
              return $results;
-         } catch (PDOException $e) {
-             echo $e->getMessage();
-         }
+                } catch (PDOException $e) {
+                  echo $e->getMessage();
+                 }
+     }
+
+     // Edit
+
+     public static function editUser()
+     {
+
+     }
+
+     //delete
+
+     public static function deleteUser()
+     {
+
+     }
+
+     //addNew
+     public static function newUser()
+     {
+
      }
  }
+
+ ?>
