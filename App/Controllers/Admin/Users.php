@@ -51,7 +51,7 @@ use App\Models\User;
      public function editAction()
      {
         echo '<p> Route parameters: <pre>' . htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
-
+        // $user = new Models\User()
         // $user->editUser();
 
          View::renderTemplate('AdminUsers/edit.html');
