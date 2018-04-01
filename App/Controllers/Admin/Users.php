@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers\Admin;
-
+use PDO;
 use \Core\View;
 use App\Models\User; 
 
@@ -30,21 +30,36 @@ use App\Models\User;
 
 
      public function indexAction()
-     {  $Users = User::getUsers();
-
-        View::renderTemplate('AdminUsers/index.html',[
-            'Users' => $Users
-        ]);
+     {  
+        // User::getUsers();
+        // if ($stmt->num_rows > 0) {
+            View::renderTemplate('AdminUsers/index.html'); 
+        //     while($row) {
+        //         $Users = User::getUsers();
+        //         View::renderTemplate('AdminUsers/index.html',[
+        //             'Users' => $Users
+        //         ]);
+        //     }
+            
+        // } else {
+        //     echo "No users in database!";
+        // }
+        
+    
      }
 
      public function editAction()
      {
+        echo '<p> Route parameters: <pre>' . htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
+
+        $user->editUser();
+
          View::renderTemplate('AdminUsers/edit.html');
      }
 
      public function deleteAction()
      {
-        //  echo "Here will be a page with message about deleting progress";
+        echo '<p>Route parameters: <pre>' . htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
          View::renderTemplate('AdminUsers/delete.html');
      }
 
