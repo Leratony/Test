@@ -2,7 +2,7 @@
 
 namespace Core;
 use PDO;
-use App\config;
+use App\Config;
 
 /**
  * Base model
