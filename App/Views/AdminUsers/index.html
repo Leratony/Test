@@ -21,14 +21,15 @@
 		<th></th>  
 </tr>
 <tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+	{% for user in users%}
+		<td>{{ user.id }}</td>
+		<td>{{ user.user_name }}</td>
+		<td>{{ user.user_surname }}</td>
+		<td>{{ user.user_gender }}</td>
+		<td>{{ user.user_bday }}</td>
+		<td>{{ user.user_login }}</td>
+		<td>{{ user.user_password }}</td>
+		<td>{{ user.admin_access }}</td>
 		<td></td>
 		<td></td>
 
