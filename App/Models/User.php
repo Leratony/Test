@@ -17,7 +17,6 @@ use PDO;
         
          try {
              $db = static::getDB();
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $db->query('SELECT    id, 
                                             user_name,
                                             user_surname,
