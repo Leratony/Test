@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use \Core\View;
+use App\Models\User; 
 
 /**
  * Admin/Users controller
