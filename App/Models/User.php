@@ -8,19 +8,15 @@ use PDO;
  * PHP version 7.0.28
  */
 
- class User 
+ class User extends \Core\Model
  {
      // Get all users as an associative array
 
      public static function getUsers()
-     {  $host = 'localhost';
-        $dbname = 'Users_Data';
-        $username = 'admin_bd';
-        $password = '251502html';
+     {  
         
          try {
-            //  $db = static::getDB();
-            $db = new PDO("mysql:host = $host;dbname = $dbname", $username, $password);
+             $db = static::getDB();
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $db->query('SELECT    id, 
                                             user_name,
