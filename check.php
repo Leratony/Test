@@ -2,8 +2,8 @@
 
         $host = 'localhost';
         $dbname = 'Users_Data';
-        $username = 'root';
-        $password = 'admin';
+        $username = 'admin_bd';
+        $password = '251502html';
 
 
         $conn = new mysqli($host,$user,$password,$dbname);
