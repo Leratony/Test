@@ -30,8 +30,9 @@ use App\Config;
 
      // Edit
 
-     public static function editUser()
-     {
+     public function editUser()
+     {  
+        echo '<p>Route parameters: <pre>' . htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
         try {
             $db = static::getDB();
 
