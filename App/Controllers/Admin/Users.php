@@ -52,7 +52,7 @@ use App\Models\User;
      {
         echo '<p> Route parameters: <pre>' . htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
 
-        $user->editUser();
+        // $user->editUser();
 
          View::renderTemplate('AdminUsers/edit.html');
      }
