@@ -30,8 +30,11 @@ use App\Models\User;
 
 
      public function indexAction()
-     {
-         View::renderTemplate('AdminUsers/index.html');
+     {  $Users = User::getUsers();
+
+        View::renderTemplate('AdminUsers/index.html',[
+            'Users' => $Users
+        ]);
      }
 
      public function editAction()
