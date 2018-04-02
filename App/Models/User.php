@@ -96,20 +96,22 @@ use App\Config;
         $db = static::getDB(); 
 
         $a = key($_GET);
-        $chars = preg_split('//', $a, -1, PREG_SPLIT_NO_EMPTY);
-        $id = $chars[12];
+        $id = preg_replace('/[^0-9]/', '', $a);
+        settype($id, 'integer');
         
-    
+
         try {
 
             $delete_stmt = $db->prepare("DELETE FROM Users WHERE id = $id ");
             $delete_stmt->execute();
 
             if (isset($id)) {
-                $s = "User deleted successfully!";
-                echo $s;
-            } else {
-                echo "Unable to delete user";
+                if (is_int($id) === true){
+                    $s = "User deleted successfully!";
+                    echo $s;
+                } else {
+                    echo "Unable to delete user";
+                }
             }
             
 
