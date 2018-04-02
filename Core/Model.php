@@ -12,20 +12,22 @@ abstract class Model
 {
     protected static function getDB()
     {
-        static $db = null;
+        
+        static $servername = "localhost";
+        static $username = "admin_bd";
+        static $dbname = "Users_Data";
+        static $password = "251502html";
 
-        if ($db === null) {
-                
-            $dsn = 'mysql:host=' . Config::DB_HOST . ';dbname=' . Config::DB_NAME;
-            $db = new PDO($dsn, Config::DB_USER, Config:: DB_PASSWORD);
-            return $db;
-
+        try {
+            $db = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // echo "Connected successfully"; 
+            }
+        catch(PDOException $e)
+            {
+            echo "Connection failed: " . $e->getMessage();
+            }
             return $db;
-        } else {
-            throw new \Exception("Database connect is failed!");
-        }
-
 
     }
     
