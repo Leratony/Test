@@ -18,10 +18,22 @@ use App\Config;
         
          try {
              $db = static::getDB();
-             $stmt = $db->query("SELECT  *  FROM Users");
-             $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-             return $row;
-            //  $db->close();
+             $stmt = $db->query("SELECT  *  FROM Users ORDER BY id");
+             $i = 0;
+             while ($User = $stmt->fetch()) {
+                    
+                $Users[$i]['id'] = $User['id']; 
+                $Users[$i]['user_name'] = $User['user_name']; 
+                $Users[$i]['user_surname'] = $User['user_surname']; 
+                $Users[$i]['user_gender'] = $User['user_gender']; 
+                $Users[$i]['user_bday'] = $User['user_bday']; 
+                $Users[$i]['user_login'] = $User['user_login']; 
+                $Users[$i]['user_password'] = $User['user_password']; 
+                $Users[$i]['admin_access'] = $User['admin_access'];
+                $i++;
+                }
+		
+                return $Users;
              
               } catch (PDOException $e) {
                   echo $e->getMessage();
