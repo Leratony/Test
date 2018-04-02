@@ -31,19 +31,11 @@ use App\Models\User;
 
      public function indexAction()
      {  
-        // User::getUsers();
-        // if ($stmt->num_rows > 0) {
-            View::renderTemplate('AdminUsers/index.html'); 
-        //     while($row) {
-        //         $Users = User::getUsers();
-        //         View::renderTemplate('AdminUsers/index.html',[
-        //             'Users' => $Users
-        //         ]);
-        //     }
-            
-        // } else {
-        //     echo "No users in database!";
-        // }
+            $Users = User::getUsers();
+            View::renderTemplate('AdminUsers/index.html',[
+                'Users' => $Users
+            ]); 
+       
         
     
      }
