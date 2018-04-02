@@ -4,6 +4,7 @@ namespace App\Models;
 use PDO;
 use App\Config;
 
+
 /**
  * User model
  * PHP version 7.0.28
@@ -91,16 +92,23 @@ use App\Config;
      //delete
 
      public static function deleteUser()
-     {
-        $id = $_GET['id'];
-        $db = static::getDB();
+     {  
+        $db = static::getDB(); 
+        User::getUsers();
+        $id = 8;
+    
         try {
 
-            $delete_stmt = $db->prepare(" DELETE * FROM Users WHERE id = '$id' ");
+            $delete_stmt = $db->prepare("DELETE FROM Users WHERE id = $id ");
             $delete_stmt->execute();
 
-            // $db->close();
-
+            if (isset($id)) {
+                $s = "User deleted successfully!";
+                echo $s;
+            } else {
+                echo "Unable to delete user";
+            }
+            
 
         } catch (PDOException $e) {
             echo $e->getMessage();

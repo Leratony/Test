@@ -52,7 +52,10 @@ use App\Models\User;
      public function deleteAction()
      {
         echo '<p>Route parameters: <pre>' . htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
-         View::renderTemplate('AdminUsers/delete.html');
+        User::deleteUser();
+        
+        
+        //View::renderTemplate('AdminUsers/delete.html');
      }
 
      public function newAction()
