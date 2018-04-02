@@ -21,7 +21,7 @@ use App\Config;
              $stmt = $db->query("SELECT  *  FROM Users");
              $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
              return $row;
-             $db->close();
+            //  $db->close();
              
               } catch (PDOException $e) {
                   echo $e->getMessage();
@@ -33,7 +33,7 @@ use App\Config;
      public function editUser()
      {  
 
-        //$id = $_GET['id'];  
+        $id = $_GET['id'];  
 
         User::getUsers();
         try {
@@ -47,7 +47,7 @@ use App\Config;
 		            $password = htmlspecialchars(strip_tags(trim($_POST['Password'])))	;
                     $adminaccess = $_POST['Admin'];
 
-                    $stmt_change = mysql_query("UPDATE Users SET 
+                    $stmt_edit = $db->prepare("UPDATE Users SET 
                                                 user_name = '$username',
                                                 user_surname = '$usersurname',
                                                 user_gender = '$Gender',
@@ -56,15 +56,18 @@ use App\Config;
                                                 user_password = '$password',
                                                 admin_access = '$adminaccess'
                                                 WHERE id = '$id' ");
-                    if ($stmt_change == 'true')  
+                    $stmt_edit->execute();
+
+                    
+                    if ($stmt_edit == 'true')  
                     {  
-                    echo '<p> Selected user was edit successfull </p>';
+                        echo '<p> Selected user was edit successfully </p>';
                     }
                     else  
                     {  
-                    echo '<p> Edit error </p>';  
+                        echo '<p> Edit error </p>';  
                     }
-            }        
+            }   // $db->close();    
             
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -77,14 +80,65 @@ use App\Config;
 
      public static function deleteUser()
      {
+        $id = $_GET['id'];
+        $db = static::getDB();
+        try {
 
+            $delete_stmt = $db->prepare(" DELETE * FROM Users WHERE id = '$id' ");
+            $delete_stmt->execute();
+
+            // $db->close();
+
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+           } 
      }
 
      //addNew
      public static function newUser()
      {
+        $db = static::getDB();
 
-     }
+        try {
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $username = htmlspecialchars(strip_tags(trim($_POST['Name']))) ;
+                $usersurname = htmlspecialchars(strip_tags(trim($_POST['Surname']))) ;
+                $Gender = $_POST['Gender'];
+                $bday = $_POST['Birthday'];
+                $login = htmlspecialchars(strip_tags(trim($_POST['Login']))) ;
+                $password = htmlspecialchars(strip_tags(trim($_POST['Password'])))	;
+                $adminaccess = $_POST['Admin'];
+        
+                $stmt_add = $db->prepare("INSERT INTO `Users` (
+                                                        `user_name`,
+                                                        `user_surname`,
+                                                        `user_gender`,
+                                                        `user_bday`,
+                                                        `user_login`, 
+                                                        `user_password`,
+                                                        `admin_access`) 
+                                           VALUES  
+    
+                                                        (
+                                                        '$username',
+                                                        '$usersurname',
+                                                        '$Gender',
+                                                        '$bday',
+                                                        '$login',
+                                                        '$password', 
+                                                        '$adminaccess') ");
+                $stmt->execute();
+                // $db->close();
+                } 
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+               } 
+            
+
+
+
+        }
  }
 
  ?>
