@@ -33,8 +33,8 @@
 		<td>{{ User.user_login|escape }}</td>
 		<td>{{ User.user_password|escape }}</td>
 		<td>{{ User.admin_access|escape }}</td>
-		<td><a class = 'editLink' href='/admin/users/{{ user.id }}/edit'>Edit User</a></td>
-		<td><a class = 'deleteLink' href='/admin/users/{{ user.id }}/delete'>Delete User</a></td>
+		<td><a class = 'editLink' href="/admin/users/{{ User.id }}/edit">Edit User</a></td>
+		<td><a class = 'deleteLink' href="/admin/users/{{ User.id }}/delete">Delete User</a></td>
 	</tr>	
 	{% endfor %}
 		
