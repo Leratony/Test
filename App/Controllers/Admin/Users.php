@@ -55,6 +55,7 @@ use App\Models\User;
         User::deleteUser();
         
         
+        
         //View::renderTemplate('AdminUsers/delete.html');
      }
 

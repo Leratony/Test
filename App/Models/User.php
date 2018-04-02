@@ -94,8 +94,30 @@ use App\Config;
      public static function deleteUser()
      {  
         $db = static::getDB(); 
-        User::getUsers();
-        $id = 8;
+        $Users = User::getUsers();
+        
+        
+        
+        foreach($Users as $User => $value) {
+                // echo "<pre>";
+                // var_dump($value);
+                // echo "</pre>";
+            
+             foreach ($value as $i => $index) {
+                echo "<pre>";
+                var_dump($index);
+                echo "</pre>";
+
+                foreach($index as $key => $id) {
+                    // echo "<pre>";
+                    // var_dump($id);
+                    // echo "</pre>";
+                    
+                    }
+                }
+                
+        }
+        
     
         try {
 
