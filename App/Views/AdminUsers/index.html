@@ -9,6 +9,7 @@
 	<table>
 <caption>Users</caption>
 <tr>
+		
 		<th>id</th>
 		<th>Name</th>
 		<th>Surname</th>
@@ -20,32 +21,25 @@
 		<th></th>
 		<th></th>  
 </tr>
-<tr>
-	<!-- {% for User in Users %}
 
-		<td>{{ User.user_name }}</td>
-		<td>{{ User.user_surname }}</td>
-		<td>{{ User.user_gender }}</td>
-		<td>{{ User.user_bday }}</td>
-		<td>{{ User.user_login }}</td>
-		<td>{{ User.user_password }}</td>
-		<td>{{ User.admin_access }}</td>
+	{% for User in Users %}
+	<tr>
+
+		<td>{{ User.id|escape }}</td>
+		<td>{{ User.user_name|escape}}</td>
+		<td>{{ User.user_surname|escape }}</td>
+		<td>{{ User.user_gender|escape }}</td>
+		<td>{{ User.user_bday|escape }}</td>
+		<td>{{ User.user_login|escape }}</td>
+		<td>{{ User.user_password|escape }}</td>
+		<td>{{ User.admin_access|escape }}</td>
 		<td><a class = 'editLink' href='/admin/users/{{ user.id }}/edit'>Edit User</a></td>
 		<td><a class = 'deleteLink' href='/admin/users/{{ user.id }}/delete'>Delete User</a></td>
+	</tr>	
+	{% endfor %}
 		
-	{% endfor %}	 -->
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td><a class = 'editLink' href='/admin/users/edit'>Edit User</a></td>
-	<td><a class = 'deleteLink' href='/admin/users/delete'>Delete User</a></td>
 
-</tr>
+
 </table>
 </div>
 
