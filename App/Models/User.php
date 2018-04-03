@@ -107,10 +107,11 @@ use App\Config;
 
             if (isset($id)) {
                 if (is_int($id) === true){
+
                     $s = "User deleted successfully!";
-                    echo $s;
+                    
                 } else {
-                    echo "Unable to delete user";
+                    $s = "Unable to delete user";
                 }
             }
             
