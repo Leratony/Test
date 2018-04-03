@@ -39,9 +39,29 @@ use App\Models\User;
 
      public function editAction()
      {
-        // User::editUser();
+         $Users = User::editUser();
 
-         View::renderTemplate('AdminUsers/edit.html');
+         echo "<pre>";
+         var_dump($Users);
+         echo "</pre>";
+         
+         echo "<pre>";
+         var_dump($_SERVER);
+         echo "</pre>";
+
+         if (User::editUser() === true){
+            View::renderTemplate('AdminUsers/edit.html',[
+                's' => 'Selected user was updated successfully',
+                'Users'=> $Users
+            ]);
+            } else {
+                View::renderTemplate('AdminUsers/edit.html',[
+                    's' => 'Edit error',
+                    'Users'=> $Users
+                ]);
+            }
+
+         
      }
 
      public function deleteAction()

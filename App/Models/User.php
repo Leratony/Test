@@ -49,11 +49,38 @@ use App\Config;
         $a = key($_GET);
         $id = preg_replace('/[^0-9]/', '', $a);
         settype($id, 'integer');
-        User::getUsers();
+
+        $stmt = $db->query("SELECT  user_name, 
+                                    user_surname, 
+                                    user_gender, 
+                                    user_bday, 
+                                    user_login, 
+                                    user_password, 
+                                    admin_access  
+                             FROM Users WHERE id= $id ");
+             
+                $i = 0;
+                while ($User = $stmt->fetch()) {
+                    
+                    $Users[$i]['user_name'] = $User['user_name']; 
+                    $Users[$i]['user_surname'] = $User['user_surname']; 
+                    $Users[$i]['user_gender'] = $User['user_gender']; 
+                    $Users[$i]['user_bday'] = $User['user_bday']; 
+                    $Users[$i]['user_login'] = $User['user_login']; 
+                    $Users[$i]['user_password'] = $User['user_password']; 
+                    $Users[$i]['admin_access'] = $User['admin_access'];
+                    $i++;
+                    }
+		
+                
+
+        
+                
 
         try {
+            $_SERVER["REQUEST_METHOD"] == "POST";
             
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST['save'])) {
 		            $username = htmlspecialchars(strip_tags(trim($_POST['Name']))) ;
 		            $usersurname = htmlspecialchars(strip_tags(trim($_POST['Surname']))) ;
 		            $Gender = $_POST['Gender'];
@@ -71,18 +98,18 @@ use App\Config;
                                                 user_password = '$password',
                                                 admin_access = '$adminaccess'
                                                 WHERE id = '$id' ");
-                    $stmt_edit->execute();
+                    $stmt_edit->execute();}
 
                     
                     if ($stmt_edit == 'true')  
                     {  
-                        echo '<p> Selected user was edit successfully </p>';
+                        $s = true;
                     }
                     else  
                     {  
-                        echo '<p> Edit error </p>';  
+                        $s = false;  
                     }
-            }   // $db->close();    
+                  
             
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -129,6 +156,7 @@ use App\Config;
 
         try {
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
                 $username = htmlspecialchars(strip_tags(trim($_POST['Name']))) ;
                 $usersurname = htmlspecialchars(strip_tags(trim($_POST['Surname']))) ;
                 $Gender = $_POST['Gender'];
