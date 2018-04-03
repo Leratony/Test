@@ -5,7 +5,7 @@
 {% block body %}
 
 
-{% for User in Users %}
+
 
 <div class ='HeaderForm'>
     <div class = 'CaptionRegister'>
@@ -22,33 +22,33 @@
         <div class='GenderDiv'>
         
             <label class = 'Name'> Name: <br>
-            <input type ='text' name = 'Name' value = {{ User.user_name|escape }}>
+            <input type ='text' name = 'Name' value = {{ Users.user_name|escape }}>
             </label> 
 
 
             <label> Surame: <br>
-            <input type ='text' name = 'Surname' value = {{ User.user_surname|escape }}>
+            <input type ='text' name = 'Surname' value = {{ Users.user_surname|escape }}>
             </label>
 
             <label> Gender: </label>
-                <input type='radio' name='Gender' value='m' > Male 
-                <input type='radio' name='Gender' value='f' > Female 
+                <input type='radio' name='Gender' value='M' > Male 
+                <input type='radio' name='Gender' value='F' > Female 
              
         </div>
         
         <div class = 'BDayDiv'>		
         
             <label>Birthday:</label>
-            <input type = 'date' name = 'Birthday' value = {{ User.user_bday|escape|date("d/m/Y") }}>
+            <input type = 'date' name = 'Birthday' value = {{ Users.user_bday|escape }}>
         </div>
         
         <div class = 'LogPassDiv'>
             <label> Login: <br>
-            <input type = 'text' name = 'Login' value = {{ User.user_login|escape }}>
+            <input type = 'text' name = 'Login' value = {{ Users.user_login|escape }}>
             </label> 
 
             <label> Enter password:<br>
-            <input type = 'password' name = 'Password' value = {{ User.user_password|escape }}>
+            <input type = 'password' name = 'Password' value = {{ Users.user_password|escape }}>
             </label>
 
 <!--
@@ -73,7 +73,7 @@
         </div>	
     </form>
 </div>
-{% endfor %}
+
 
 <div>{{ s }}</div>
 

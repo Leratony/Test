@@ -41,25 +41,25 @@ use App\Models\User;
      {
          $Users = User::editUser();
 
-         echo "<pre>";
+         echo "Users: <pre>";
          var_dump($Users);
          echo "</pre>";
          
-         echo "<pre>";
-         var_dump($_SERVER);
+         echo "POST:<pre>";
+         var_dump($_POST);
          echo "</pre>";
 
-         if (User::editUser() === true){
-            View::renderTemplate('AdminUsers/edit.html',[
-                's' => 'Selected user was updated successfully',
+         $edit = User::editUser();
+         echo "QUERY:<pre>";
+         var_dump($edit) ;
+         echo "</pre>";
+        
+        View::renderTemplate('AdminUsers/edit.html',[
+                // 's' => 'Selected user was updated successfully',
                 'Users'=> $Users
-            ]);
-            } else {
-                View::renderTemplate('AdminUsers/edit.html',[
-                    's' => 'Edit error',
-                    'Users'=> $Users
-                ]);
-            }
+        ]);
+                
+            
 
          
      }
