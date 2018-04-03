@@ -56,7 +56,7 @@ use App\Config;
 		            $usersurname = htmlspecialchars(strip_tags(trim($_POST['Surname']))) ;
 		            $Gender = $_POST['Gender'];
 		            $bday = $_POST['Birthday'];
-		            $login = htmlspecialchars(strip_tags(trim($_POST['Login']))) ;
+		            $login = htmlspecialchars(strip_tags(trim($_POST['Login'])));
 		            $password = htmlspecialchars(strip_tags(trim($_POST['Password'])))	;
                     $adminaccess = $_POST['Admin'];
 
@@ -108,10 +108,10 @@ use App\Config;
             if (isset($id)) {
                 if (is_int($id) === true){
 
-                    $s = "User deleted successfully!";
+                    $s = true;
                     
                 } else {
-                    $s = "Unable to delete user";
+                    $s = false;
                 }
             }
             
