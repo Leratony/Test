@@ -137,12 +137,14 @@ use App\Config;
                 if (is_int($id) === true){
 
                     $s = true;
+                    header('Location:http://localhost/admin/users/index');   
+                    exit;
                     
                 } else {
                     $s = false;
                 }
             }
-            
+             
 
         } catch (PDOException $e) {
             echo $e->getMessage();
