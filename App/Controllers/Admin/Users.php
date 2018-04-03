@@ -35,16 +35,11 @@ use App\Models\User;
             View::renderTemplate('AdminUsers/index.html',[
                 'Users' => $Users
             ]); 
-       
-        
-    
      }
 
      public function editAction()
      {
-        echo '<p> Route parameters: <pre>' . htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
-        // $user = new Models\User()
-        // $user->editUser();
+        // User::editUser();
 
          View::renderTemplate('AdminUsers/edit.html');
      }

@@ -43,14 +43,16 @@ use App\Config;
 
      // Edit
 
-     public function editUser()
+     public static function editUser()
      {  
-
-        $id = $_GET['id'];  
-
+        $db = static::getDB(); 
+        $a = key($_GET);
+        $id = preg_replace('/[^0-9]/', '', $a);
+        settype($id, 'integer');
         User::getUsers();
+
         try {
-            $db = static::getDB();
+            
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		            $username = htmlspecialchars(strip_tags(trim($_POST['Name']))) ;
 		            $usersurname = htmlspecialchars(strip_tags(trim($_POST['Surname']))) ;
@@ -94,7 +96,6 @@ use App\Config;
      public static function deleteUser()
      {  
         $db = static::getDB(); 
-
         $a = key($_GET);
         $id = preg_replace('/[^0-9]/', '', $a);
         settype($id, 'integer');
