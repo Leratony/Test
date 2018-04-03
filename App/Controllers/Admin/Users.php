@@ -80,7 +80,15 @@ use App\Models\User;
 
      public function newAction()
      {
-         View::renderTemplate('AdminUsers/new.html');
+        
+        echo "POST: <pre>";
+         var_dump($_POST);
+         echo "</pre>";
+         $ExstLogin = User::newUser();
+         print_r($ExstLogin);
+
+
+       View::renderTemplate('AdminUsers/new.html');
      }
 
      
