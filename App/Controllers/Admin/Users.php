@@ -51,12 +51,16 @@ use App\Models\User;
 
      public function deleteAction()
      {
-        echo '<p>Route parameters: <pre>' . htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
-        User::deleteUser();
+        if(User::deleteUser() === true ){
+            View::renderTemplate('AdminUsers/delete.html',[
+                's' => 'User deleted successfully!'
+            ]);
+        } else {
+            View::renderTemplate('AdminUsers/delete.html',[
+                's' => 'Unable to delete user'
+            ]);
+        }
         
-        
-        
-        //View::renderTemplate('AdminUsers/delete.html');
      }
 
      public function newAction()
