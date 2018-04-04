@@ -67,15 +67,7 @@ use App\Config;
             
             $Users = [];
             while ($User = $stmt->fetch()) { $Users = [
-                        
-        //                 // $Users[$i]['user_name'] = $User['user_name']; 
-        //                 // $Users[$i]['user_surname'] = $User['user_surname']; 
-        //                 // $Users[$i]['user_gender'] = $User['user_gender']; 
-        //                 // $Users[$i]['user_bday'] = $User['user_bday']; 
-        //                 // $Users[$i]['user_login'] = $User['user_login']; 
-        //                 // $Users[$i]['user_password'] = $User['user_password']; 
-        //                 // $Users[$i]['admin_access'] = $User['admin_access'];
-        //                 // $i++;
+          
                       "id"     => $User['id'],
                       "user_name"  => $User['user_name'], 
                       "user_surname" => $User['user_surname'], 
@@ -85,9 +77,18 @@ use App\Config;
                       "user_password" => $User['user_password']];
                         
                         }
+
+            if (isset($User["user_gender"])) {
+                if ($User["user_gender"] == "M") {
+                    $_POST["Gender"] = "M";
+                }
+                if ($User["user_gender"] == "F") {
+                    $_POST["Gender"] = "F";
+                }
+            }   
             
             
-            if (/*(isset($_POST['save']))*/ ($_SERVER["REQUEST_METHOD"] == "POST")) {
+            if (($_SERVER["REQUEST_METHOD"] == "POST")) {
                 
                     $id = htmlspecialchars(strip_tags(trim($_POST['id']))) ;
 		            $username = htmlspecialchars(strip_tags(trim($_POST['Name']))) ;
@@ -112,15 +113,7 @@ use App\Config;
                     $edit = $db->exec($stmt_edit);
                     $db->commit();
 
-                    // if ($edit == true) {
-                    //     $s = "User updated successfully!";
-                    // } else {
-                    //     $s = "Check your query, please. Not available";
-                    // }
-
                     
-                 //else {
-                   // $s =  "Edit error";
                 }
                 return $Users;
             }catch (PDOException $e) {
@@ -240,30 +233,6 @@ use App\Config;
 
     }    
                    
-
-
-               
-
-            
-
-
-            //     if (isset()) {
-
-            //         $adminaccess = $_POST["Admin"];
-
-            //         $stmt_add_adminon = $db->exec("INSERT INTO Users `admin_access` VALUES '1' ");
-            //     } else {
-            //         $stmt_add_adminoff = $db->exec("INSERT INTO Users  VALUES '0' ");
-            //     }
-
-            //     // $db->close();
-            //     echo "New user created!";
-            // }
-             
-        
-            
-
-
 
         
  }
