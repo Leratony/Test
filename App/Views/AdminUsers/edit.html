@@ -20,35 +20,35 @@
     <form method = 'post' action = '/admin/users/{{ User.id }}/edit' name='NewUser'>
        
         <div class='GenderDiv'>
-            <input type ='text' name = 'id' value = {{ Users.id }}>
+            <input type ='text' name = 'id' value = '{{ Users.id }}'>
             <label class = 'Name'> Name: <br>
-            <input type ='text' name = 'Name' value = {{ Users.user_name|escape }}>
+            <input type ='text' name = 'Name' value = '{{ Users.user_name|escape }}'>
             </label> 
 
 
             <label> Surame: <br>
-            <input type ='text' name = 'Surname' value = {{ Users.user_surname|escape }}>
+            <input type ='text' name = 'Surname' value = '{{ Users.user_surname|escape }}'>
             </label>
 
             <label> Gender: </label>
-                <input type='radio' name='Gender' value='M' > Male 
-                <input type='radio' name='Gender' value='F' > Female 
+                <input type='radio' name='Gender' value= '{{ Users.user_gender }}' required> Male 
+                <input type='radio' name='Gender' value= '{{ Users.user_gender }}' > Female 
              
         </div>
         
         <div class = 'BDayDiv'>		
         
             <label>Birthday:</label>
-            <input type = 'date' name = 'Birthday' value = {{ Users.user_bday|escape }}>
+            <input type = 'date' name = 'Birthday' value = '{{ Users.user_bday|escape }}'>
         </div>
         
         <div class = 'LogPassDiv'>
             <label> Login: <br>
-            <input type = 'text' name = 'Login' value = {{ Users.user_login|escape }}>
+            <input type = 'text' name = 'Login' value = '{{ Users.user_login|escape }}'>
             </label> 
 
             <label> Enter password:<br>
-            <input type = 'password' name = 'Password' value = {{ Users.user_password|escape }}>
+            <input type = 'text' name = 'Password' value = '{{ Users.user_password|escape }}'>
             </label>
 
 <!--
