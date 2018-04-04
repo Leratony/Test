@@ -17,7 +17,7 @@ use App\Models\User;
     {
         if (!empty($_SESSION)) {
             return true;
-        } else {return false;}
+        } else {/*return false;*/}
     }
 
     

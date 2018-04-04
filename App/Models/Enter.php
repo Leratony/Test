@@ -11,22 +11,25 @@ use App\Config;
 
  class Enter extends \Core\Model
  {
+
+    
      public static function Authorize()
      {
-        $db = static::getDB();
+        
 
         try {
 
-            if (isset($_POST['login']))
-	        { $loginA = trim(htmlspecialchars(stripslashes($_POST['login'])));
-            if ($loginA == '') { unset($loginA);}}
+            if (isset($_POST["login"]))
+	        { $loginA = trim(htmlspecialchars(stripslashes($_POST["login"])));}
+            
 
-            if (isset($_POST['password'])) 
-	        { $passwordA=trim(htmlspecialchars(stripslashes($_POST['password']))); 
-            if ($passwordA =='') { unset($passwordA);} }
+            if (isset($_POST["pswd"])) 
+	        { $passwordA=trim(htmlspecialchars(stripslashes($_POST['password'])));}
+
+            $db = static::getDB();
         
 
-            $stmt = $db->query("SELECT * FROM `Users` WHERE `user_login` ='$loginA' AND admin_access = 1");
+            $stmt = $db->query("SELECT * FROM `Users` WHERE `user_login` = $loginA AND `admin_access` = 1");
             $myrow = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if (empty($myrow["user_password"])) {
