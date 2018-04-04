@@ -9,6 +9,7 @@
 	<table>
 <caption>Users</caption>
 <tr>
+		
 		<th>id</th>
 		<th>Name</th>
 		<th>Surname</th>
@@ -19,8 +20,28 @@
 		<th>Admin</th>
 		<th></th>
 		<th></th>  
-	</tr>
+</tr>
 
+	{% for User in Users %}
+	<tr>
+
+		<td>{{ User.id|escape }}</td>
+		<td>{{ User.user_name|escape}}</td>
+		<td>{{ User.user_surname|escape }}</td>
+		<td>{{ User.user_gender|escape }}</td>
+		<td>{{ User.user_bday|escape|date("d/m/Y") }}</td>
+		<td>{{ User.user_login|escape }}</td>
+		<td>{{ User.user_password|escape }}</td>
+		<td>{{ User.admin_access|escape }}</td>
+		<td><a class = 'editLink' href="/admin/users/{{ User.id }}/edit">Edit User</a></td>
+		<td><a class = 'deleteLink' href="/admin/users/{{ User.id }}/delete">Delete User</a></td>
+	</tr>	
+	{% endfor %}
+		
+
+
+</table>
+</div>
 
 
 {% endblock %}

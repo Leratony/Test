@@ -4,6 +4,9 @@
 
 {% block body %}
 
+
+
+
 <div class ='HeaderForm'>
     <div class = 'CaptionRegister'>
     <h1>Edit Userinfo</h1>
@@ -14,38 +17,38 @@
 
 
 
-    <form method = 'post' action = 'Edit.php?id=<?php echo $id; ?>' name='NewUser'>
+    <form method = 'post' action = '/admin/users/{{ User.id }}/edit' name='NewUser'>
        
         <div class='GenderDiv'>
-        
+            <input type ='text' name = 'id' value = {{ Users.id }}>
             <label class = 'Name'> Name: <br>
-            <input type ='text' name = 'Name' value = "<?php echo $row['user_name'];?>">
+            <input type ='text' name = 'Name' value = {{ Users.user_name|escape }}>
             </label> 
 
 
             <label> Surame: <br>
-            <input type ='text' name = 'Surname' value = "<?php echo $row['user_surname'];?>">
+            <input type ='text' name = 'Surname' value = {{ Users.user_surname|escape }}>
             </label>
 
             <label> Gender: </label>
-                <input type='radio' name='Gender' value='m' > Male 
-                <input type='radio' name='Gender' value='f' > Female 
+                <input type='radio' name='Gender' value='M' > Male 
+                <input type='radio' name='Gender' value='F' > Female 
              
         </div>
         
         <div class = 'BDayDiv'>		
         
             <label>Birthday:</label>
-            <input type = 'date' name = 'Birthday' value = "<?php echo $row['user_bday'];?>">
+            <input type = 'date' name = 'Birthday' value = {{ Users.user_bday|escape }}>
         </div>
         
         <div class = 'LogPassDiv'>
             <label> Login: <br>
-            <input type = 'text' name = 'Login' value = "<?php echo $row['user_login']; ?>">
+            <input type = 'text' name = 'Login' value = {{ Users.user_login|escape }}>
             </label> 
 
             <label> Enter password:<br>
-            <input type = 'password' name = 'Password' value = "<?php echo $row['user_password']; ?>">
+            <input type = 'password' name = 'Password' value = {{ Users.user_password|escape }}>
             </label>
 
 <!--
@@ -57,18 +60,16 @@
             
         </div>
         <div class = 'Register'>
-            
+
             <input type = 'submit' name = 'save' value = 'Save Changes'>
             <input type ='reset' name ='clear' value='Clear'>
-
-            <div class ='Privileg'>
-            <label> Administrator:
-            <input type = 'checkbox' name = 'Admin' value = "<?php echo $row['admin_access']; ?>">
-            </label>
                 
             </div>
         </div>	
     </form>
 </div>
+
+
+<div>{{ s }}</div>
 
 {% endblock %}

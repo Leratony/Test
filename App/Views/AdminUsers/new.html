@@ -15,17 +15,17 @@
 	
 		<div class = "formWrapper">
 	
-		<form method = "post" action = "Main.php?page=create">
+		<form method = "post" action = "/admin/users/new">
            
             <div class="GenderDiv">
             
 				<label class = "Name"> Name: <br>
-						<input type ="text" name = "Name">
+						<input type ="text" name = "Name" required autofocus>
 				</label> 
 
 
 				<label> Surame: <br>
-						<input type ="text" name = "Surname">
+						<input type ="text" name = "Surname" required>
 				</label>
 
 				<label> Gender: </label>
@@ -37,16 +37,16 @@
 			<div class = "BDayDiv">		
 			
 	        	<label>Birthday:</label>
-					<input type = "date" name = "Birthday">
+					<input type = "date" name = "Birthday" required>
 			</div>
 			
 			<div class = "LogPassDiv">
 				<label> Login: <br>
-					<input type ="text" name = "Login">
+					<input type ="text" name = "Login" required>
 				</label> 
 
 				<label> Enter password:<br>
-					<input type ="password" name = "Password">
+					<input type ="password" name = "Password" required>
 				</label>
 
 <!--

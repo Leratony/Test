@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Controllers\Admin;
-
+use PDO;
 use \Core\View;
+use App\Models\User; 
 
 /**
  * Admin/Users controller
@@ -14,39 +15,79 @@ use \Core\View;
  {
     protected function before()
     {
-        // echo "(before)"; // это те методы, которые вызываются до запуска какого-то контроллера.
-        // тут надо убедиться в авторизации
-        // return false; - если это выставить, то пользователь не сможет видеть страницу, не авторизовавшись, например
+        if (!empty($_SESSION)) {
+            return true;
+        } else {/*return false;*/}
     }
 
-    protected function after()
-    {
-        // echo "(after)"; // это те методы, которые вызываются после запуска какого-то контроллера.
-        // тут надо убедиться в авторизации, сессии, куки, все дела
-        // тут можно собрать какую-нибудь статистику, но отложим это дело
-        // return false; - если это выставить, то пользователь не сможет видеть страницу, не авторизовавшись, например
-    }
+    
 
 
      public function indexAction()
-     {
-         View::renderTemplate('AdminUsers/index.html');
+     {  
+            $Users = User::getUsers();
+            View::renderTemplate('AdminUsers/index.html',[
+                'Users' => $Users
+            ]); 
      }
 
      public function editAction()
      {
-         View::renderTemplate('AdminUsers/edit.html');
+         $Users = User::editUser();
+
+         echo "Users: <pre>";
+         var_dump($Users);
+         echo "</pre>";
+         
+        //  echo "POST:<pre>";
+        //  var_dump($_POST);
+        //  echo "</pre>";
+
+        //  $edit = User::editUser();
+        //  echo "QUERY:<pre>";
+        //  var_dump($edit) ;
+        //  echo "</pre>";
+
+         
+
+         
+                
+        
+        View::renderTemplate('AdminUsers/edit.html',[
+                // 's' => 'Selected user was updated successfully',
+                'Users'=> $Users
+        ]);
+                
+            
+
+         
      }
 
      public function deleteAction()
      {
-        //  echo "Here will be a page with message about deleting progress";
-         View::renderTemplate('AdminUsers/delete.html');
+        if(User::deleteUser() === true ){
+            View::renderTemplate('AdminUsers/delete.html',[
+                's' => 'User deleted successfully!'
+            ]);
+        } else {
+            View::renderTemplate('AdminUsers/delete.html',[
+                's' => 'Unable to delete user'
+            ]);
+        }
+        
      }
 
      public function newAction()
      {
-         View::renderTemplate('AdminUsers/new.html');
+        
+        echo "POST: <pre>";
+         var_dump($_POST);
+         echo "</pre>";
+         $ExstLogin = User::newUser();
+         print_r($ExstLogin);
+
+
+       View::renderTemplate('AdminUsers/new.html');
      }
 
      
