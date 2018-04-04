@@ -60,10 +60,6 @@ use App\Models\User;
 
      public function newAction()
      {
-        
-        echo "POST: <pre>";
-         var_dump($_POST);
-         echo "</pre>";
          $ExstLogin = User::newUser();
          print_r($ExstLogin);
 
