@@ -69,7 +69,7 @@
 			display: inline-block;
 			
 		}
-		 .main-menu  a {
+		 .main-menu  .NL {
 			border-left: 1px solid rgba(255,255,255,0.1);
 			border-right: 1px solid rgba(255,255,255,0.1);
 			display: block;
@@ -120,6 +120,8 @@
 			border:none;
 			border-radius: 5px;
 			line-height: 30px;
+			padding-left: 10px;
+			width:70%;
 		}
 		.sub-menu li input[name = EnterSend]{
 			color:aliceblue;
@@ -130,10 +132,14 @@
 		.main-menu > li:hover .sub-menu {
 			display: block;
 		}
-		.main-menu #Register {
-			border: none;
+		.main-menu  #Register {
+			color:aliceblue;
+			text-decoration: none;
+			background-color: #747275;
+			padding: 5px;
 			position: relative;
 			left: 80px;
+			border-radius: 5px;
 		}
 		
 		
@@ -479,9 +485,9 @@ form .Warn {
 	<div id ="companyName">Brand</div>
 	<div class ="navWrap">
 	   <ul class="main-menu">
-			<li><a href="/">Main</a></li>
-			<li><a href="/shop/index">Shop</a></li>
-			<li><a href ="#">Log In</a>
+			<li><a class = "NL" href="/">Main</a></li>
+			<li><a class = "NL" href="/shop/index">Shop</a></li>
+			<li><a class = "NL" href ="#">Log In</a>
 				<ul class = "sub-menu">
 					
 						<form method = "post" action = "Main.php" name="Enter">
