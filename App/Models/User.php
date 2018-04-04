@@ -19,9 +19,13 @@ use App\Config;
         
          try {
              $db = static::getDB();
+            // постраничный вывод
+
+             $on_page = 5;
+
              $stmt = $db->query("SELECT  *  FROM Users ORDER BY id");
              $i = 0;
-             while ($User = $stmt->fetch()) {
+             while ($User = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     
                 $Users[$i]['id'] = $User['id']; 
                 $Users[$i]['user_name'] = $User['user_name']; 
@@ -33,8 +37,13 @@ use App\Config;
                 $Users[$i]['admin_access'] = $User['admin_access'];
                 $i++;
                 }
+
+                global $count_records;
+                $count_records = count($Users);
+                
 		
                 return $Users;
+                
              
               } catch (PDOException $e) {
                   echo $e->getMessage();

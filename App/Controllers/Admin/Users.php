@@ -26,8 +26,10 @@ use App\Models\User;
      public function indexAction()
      {  
             $Users = User::getUsers();
+            global $count_records;    
             View::renderTemplate('AdminUsers/index.html',[
-                'Users' => $Users
+                'Users' => $Users,
+                'all' => $count_records
             ]); 
      }
 
