@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use \Core\View;
+use App\Models\Enter;
 
 /**
  * Admin/Login controller
@@ -13,31 +14,35 @@ use \Core\View;
  class Admin extends \Core\Controller
  {
     protected function before()
-    {
-        //echo "(before)"; // это те методы, которые вызываются до запуска какого-то контроллера.
-        // тут надо убедиться в авторизации
-        // проверить, запущена ли сессия
-        // куки
+    {   
+        
+        if (empty($_SESSION)) {
+            session_start();
+            return true;
+        } else {
+            if (!empty($_COOKIE['test'])) {echo $_COOKIE['test'];}}
+        
+        
+        //return false;
         // смена языка мб
-        // return false; - если это выставить, то пользователь не сможет видеть страницу, не авторизовавшись, например
     }
-
+    
+     public function loginAction()
+        {
+            Enter::Authorize();
+            View::renderTemplate('Admin/index.html');
+        }    
+        
     protected function after()
     {
-        //echo "(after)"; // это те методы, которые вызываются после запуска какого-то контроллера.
-        // тут надо убедиться в авторизации
-        // еще какие-нибудь проверки
-        // return false; - если это выставить, то пользователь не сможет видеть страницу, не авторизовавшись, например
+        header("Location:http://localhost/admin/main/index");
     }
 
 
 
 
 
-     public function loginAction()
-     {
-         View::renderTemplate('Admin/index.html');
-     }
+     
 
      
 
