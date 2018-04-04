@@ -49,7 +49,7 @@ use App\Config;
         
         try {
 
-             $db = static::getDB(); 
+            $db = static::getDB(); 
             $a = key($_GET);
             $id = preg_replace('/[^0-9]/', '', $a);
             settype($id, 'integer');
@@ -76,17 +76,8 @@ use App\Config;
                       "user_login" => $User['user_login'], 
                       "user_password" => $User['user_password']];
                         
-                        }
-
-            if (isset($User["user_gender"])) {
-                if ($User["user_gender"] == "M") {
-                    $_POST["Gender"] = "M";
-                }
-                if ($User["user_gender"] == "F") {
-                    $_POST["Gender"] = "F";
-                }
-            }   
-            
+            }
+  
             
             if (($_SERVER["REQUEST_METHOD"] == "POST")) {
                 
@@ -112,16 +103,21 @@ use App\Config;
                     
                     $edit = $db->exec($stmt_edit);
                     $db->commit();
-
+                    header("Location:http://localhost/admin/users/index");
+                    exit; 
                     
                 }
                 return $Users;
+                
+                
             }catch (PDOException $e) {
             echo $e->getMessage();
            }
            
 
      }
+
+     
 
      //delete
 
