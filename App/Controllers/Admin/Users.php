@@ -33,33 +33,14 @@ use App\Models\User;
 
      public function editAction()
      {
-         $Users = User::editUser();
-
-         echo "Users: <pre>";
-         var_dump($Users);
-         echo "</pre>";
-         
-        //  echo "POST:<pre>";
-        //  var_dump($_POST);
-        //  echo "</pre>";
-
-        //  $edit = User::editUser();
-        //  echo "QUERY:<pre>";
-        //  var_dump($edit) ;
-        //  echo "</pre>";
-
-         
-
-         
-                
+     
+        $Users = User::editUser();
         
+
         View::renderTemplate('AdminUsers/edit.html',[
-                // 's' => 'Selected user was updated successfully',
                 'Users'=> $Users
         ]);
                 
-            
-
          
      }
 
