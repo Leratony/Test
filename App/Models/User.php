@@ -45,14 +45,17 @@ use App\Config;
 
      public static function editUser()
      {  
+
         
         try {
-            $db = static::getDB(); 
+
+             $db = static::getDB(); 
             $a = key($_GET);
             $id = preg_replace('/[^0-9]/', '', $a);
             settype($id, 'integer');
 
-            $stmt = $db->query("SELECT  user_name, 
+            $stmt = $db->query("SELECT  id,
+                                        user_name, 
                                         user_surname, 
                                         user_gender, 
                                         user_bday, 
@@ -65,37 +68,34 @@ use App\Config;
             $Users = [];
             while ($User = $stmt->fetch()) { $Users = [
                         
-                        // $Users[$i]['user_name'] = $User['user_name']; 
-                        // $Users[$i]['user_surname'] = $User['user_surname']; 
-                        // $Users[$i]['user_gender'] = $User['user_gender']; 
-                        // $Users[$i]['user_bday'] = $User['user_bday']; 
-                        // $Users[$i]['user_login'] = $User['user_login']; 
-                        // $Users[$i]['user_password'] = $User['user_password']; 
-                        // $Users[$i]['admin_access'] = $User['admin_access'];
-                        // $i++;
-
+        //                 // $Users[$i]['user_name'] = $User['user_name']; 
+        //                 // $Users[$i]['user_surname'] = $User['user_surname']; 
+        //                 // $Users[$i]['user_gender'] = $User['user_gender']; 
+        //                 // $Users[$i]['user_bday'] = $User['user_bday']; 
+        //                 // $Users[$i]['user_login'] = $User['user_login']; 
+        //                 // $Users[$i]['user_password'] = $User['user_password']; 
+        //                 // $Users[$i]['admin_access'] = $User['admin_access'];
+        //                 // $i++;
+                      "id"     => $User['id'],
                       "user_name"  => $User['user_name'], 
                       "user_surname" => $User['user_surname'], 
                       "user_gender" => $User['user_gender'], 
                       "user_bday" => $User['user_bday'], 
                       "user_login" => $User['user_login'], 
-                      "user_password" => $User['user_password'], 
-                      "admin_access" => $User['admin_access']];
+                      "user_password" => $User['user_password']];
                         
                         }
             
-            return $Users;
             
-            
-            if ((isset($_POST['save'])) /*&& ($_SERVER["REQUEST_METHOD"] == "POST")*/) {
+            if (/*(isset($_POST['save']))*/ ($_SERVER["REQUEST_METHOD"] == "POST")) {
+                
+                    $id = htmlspecialchars(strip_tags(trim($_POST['id']))) ;
 		            $username = htmlspecialchars(strip_tags(trim($_POST['Name']))) ;
-		            $usersurname = htmlspecialchars(strip_tags(trim($_POST['SurName']))) ;
+		            $usersurname = htmlspecialchars(strip_tags(trim($_POST['Surname']))) ;
 		            $Gender = $_POST['Gender'];
 		            $bday = $_POST['Birthday'];
 		            $login = htmlspecialchars(strip_tags(trim($_POST['Login'])));
 		            $password = htmlspecialchars(strip_tags(trim($_POST['Password'])))	;
-                    $adminaccess = $_POST['Admin'];
-
 
                     $db = static::getDB();
                     $db->beginTransaction();
@@ -106,22 +106,11 @@ use App\Config;
                                                 user_gender = '$Gender',
                                                 user_bday = '$bday',
                                                 user_login = '$login',
-                                                user_password = '$password',
-                                                admin_access = '$adminaccess'
+                                                user_password = '$password'
                                                 WHERE id = $id ";
-
-                    // $stmt_edit = "INSERT INTO Users(user_name, 
-                    //                                 user_surname, 
-                    //                                 user_gender, 
-                    //                                 user_bday, 
-                    //                                 user_login, 
-                    //                                 user_password, 
-                    //                                 admin_access)
-                    //                VALUES ('$username', '$usersurname', '$Gender', '$bday', '$login', '$password', '$adminaccess') WHERE id = $id  ";
                     
                     $edit = $db->exec($stmt_edit);
                     $db->commit();
-                    
 
                     // if ($edit == true) {
                     //     $s = "User updated successfully!";
@@ -133,11 +122,11 @@ use App\Config;
                  //else {
                    // $s =  "Edit error";
                 }
-                
-        } catch (PDOException $e) {
+                return $Users;
+            }catch (PDOException $e) {
             echo $e->getMessage();
-           } 
-
+           }
+           
 
      }
 

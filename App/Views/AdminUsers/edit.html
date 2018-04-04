@@ -20,7 +20,7 @@
     <form method = 'post' action = '/admin/users/{{ User.id }}/edit' name='NewUser'>
        
         <div class='GenderDiv'>
-        
+            <input type ='text' name = 'id' value = {{ Users.id }}>
             <label class = 'Name'> Name: <br>
             <input type ='text' name = 'Name' value = {{ Users.user_name|escape }}>
             </label> 
@@ -60,14 +60,9 @@
             
         </div>
         <div class = 'Register'>
-            
+
             <input type = 'submit' name = 'save' value = 'Save Changes'>
             <input type ='reset' name ='clear' value='Clear'>
-
-            <div class ='Privileg'>
-            <label> Administrator:
-            <input type = 'checkbox' name = 'Admin' value = {{ User.admin_access|escape }}>
-            </label>
                 
             </div>
         </div>	

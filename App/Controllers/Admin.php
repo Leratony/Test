@@ -29,7 +29,7 @@ use App\Models\Enter;
     
      public function loginAction()
         {
-            //Enter::Authorize();
+            Enter::Authorize();
             View::renderTemplate('Admin/index.html');
         }    
         

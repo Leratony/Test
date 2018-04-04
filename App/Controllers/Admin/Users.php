@@ -39,14 +39,19 @@ use App\Models\User;
          var_dump($Users);
          echo "</pre>";
          
-         echo "POST:<pre>";
-         var_dump($_POST);
-         echo "</pre>";
+        //  echo "POST:<pre>";
+        //  var_dump($_POST);
+        //  echo "</pre>";
 
-         $edit = User::editUser();
-         echo "QUERY:<pre>";
-         var_dump($edit) ;
-         echo "</pre>";
+        //  $edit = User::editUser();
+        //  echo "QUERY:<pre>";
+        //  var_dump($edit) ;
+        //  echo "</pre>";
+
+         
+
+         
+                
         
         View::renderTemplate('AdminUsers/edit.html',[
                 // 's' => 'Selected user was updated successfully',
