@@ -86,7 +86,22 @@ use App\Config;
                       "user_password" => $User['user_password']];
                         
             }
-  
+            
+            global $checkM;
+            global $checkF;
+            if (isset($Users["user_gender"])) {
+            
+                if ($Users["user_gender"] == 'M') {
+                    $checkM = " checked";
+                    $checkF = "";
+                    
+                }
+                if ($Users["user_gender"] == "F") {
+                    $checkM = " ";
+                    $checkF = "checked";
+                }
+            }   
+            
             
             if (($_SERVER["REQUEST_METHOD"] == "POST")) {
                 
@@ -142,7 +157,7 @@ use App\Config;
 
             if (isset($id)) {
                 if (is_int($id) === true){
-                    
+
                     $delete_stmt = $db->prepare("DELETE FROM Users WHERE id = $id ");
                     $delete_stmt->execute();
 

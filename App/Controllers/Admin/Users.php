@@ -35,12 +35,14 @@ use App\Models\User;
 
      public function editAction()
      {
-     
-        $Users = User::editUser();
         
-
+        $Users = User::editUser();
+        global $checkM;
+        global $checkF;
         View::renderTemplate('AdminUsers/edit.html',[
-                'Users'=> $Users
+                'Users'=> $Users,
+                'checkM'=> $checkM,
+                'checkF'=> $checkF
         ]);
                 
          
