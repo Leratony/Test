@@ -48,15 +48,9 @@ use App\Models\User;
 
      public function deleteAction()
      {
-        if(User::deleteUser() === true ){
-            View::renderTemplate('AdminUsers/delete.html',[
-                's' => 'User deleted successfully!'
-            ]);
-        } else {
-            View::renderTemplate('AdminUsers/delete.html',[
-                's' => 'Unable to delete user'
-            ]);
-        }
+         
+        User::deleteUser();
+        View::renderTemplate('AdminUsers/delete.html');
         
      }
 
