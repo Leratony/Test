@@ -39,10 +39,14 @@ use App\Models\User;
         $Users = User::editUser();
         global $checkM;
         global $checkF;
+        global $check;
+        
+
         View::renderTemplate('AdminUsers/edit.html',[
                 'Users'=> $Users,
                 'checkM'=> $checkM,
-                'checkF'=> $checkF
+                'checkF'=> $checkF,
+                'check' => $check
         ]);
                 
          

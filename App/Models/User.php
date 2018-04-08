@@ -83,7 +83,8 @@ use App\Config;
                       "user_gender" => $User['user_gender'], 
                       "user_bday" => $User['user_bday'], 
                       "user_login" => $User['user_login'], 
-                      "user_password" => $User['user_password']];
+                      "user_password" => $User['user_password'],
+                      "admin_access" => $User['admin_access']];
                         
             }
             
@@ -100,7 +101,19 @@ use App\Config;
                     $checkM = " ";
                     $checkF = "checked";
                 }
-            }   
+            }
+
+            global $check;
+            
+            if (isset($Users["admin_access"])) {
+                if ($Users["admin_access"] == '1') {
+                    $check = "checked";
+                    
+                } else {
+                    $check = "";
+                }
+            }
+            
             
             
             if (($_SERVER["REQUEST_METHOD"] == "POST")) {
@@ -111,8 +124,10 @@ use App\Config;
 		            $Gender = $_POST['Gender'];
 		            $bday = $_POST['Birthday'];
 		            $login = htmlspecialchars(strip_tags(trim($_POST['Login'])));
-		            $password = htmlspecialchars(strip_tags(trim($_POST['Password'])))	;
-
+                    $password = htmlspecialchars(strip_tags(trim($_POST['Password'])));
+                    $adminaccess = (isset($_POST['Admin']))? '1' : '0';
+                    
+                    
                     $db = static::getDB();
                     $db->beginTransaction();
 
@@ -122,7 +137,8 @@ use App\Config;
                                                 user_gender = '$Gender',
                                                 user_bday = '$bday',
                                                 user_login = '$login',
-                                                user_password = '$password'
+                                                user_password = '$password',
+                                                admin_access = '$adminaccess'
                                                 WHERE id = $id ";
                     
                     $edit = $db->exec($stmt_edit);
