@@ -142,14 +142,7 @@ use App\Config;
 
             if (isset($id)) {
                 if (is_int($id) === true){
-                    ?>
-                    <script type="text/javascript">
-                    jQuery(document).ready(function(){
-                        jQuery(".deleteLink").click(function(){confirm("Do you really want to delete this user>")})
-                    } 
                     
-                    </script>
-                    <?php
                     $delete_stmt = $db->prepare("DELETE FROM Users WHERE id = $id ");
                     $delete_stmt->execute();
 
